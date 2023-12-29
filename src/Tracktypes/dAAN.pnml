@@ -1,0 +1,112 @@
+//Standard Gauge Branch
+spriteset (dAAN_underlay, "grf/dAAN.png") {
+	tmpl_underlay_track_types()
+}
+spriteset (dAAN_overlay, "grf/dAAN.png") {
+	tmpl_overlay_track_types()
+}
+spriteset (dAAN_snow_underlay, "grf/dASN.png") {
+	tmpl_underlay_track_types()
+}
+spriteset (dAAN_snow_overlay, "grf/dASN.png") {
+	tmpl_overlay_track_types()
+}
+switch(FEAT_RAILTYPES, SELF, switch_dAAN_under_SNOW,terrain_type) {
+	TILETYPE_SNOW: dAAN_snow_underlay;
+	dAAN_underlay;
+}
+switch(FEAT_RAILTYPES, SELF, switch_dAAN_over_SNOW,terrain_type) {
+	TILETYPE_SNOW: dAAN_snow_overlay;
+	dAAN_overlay;
+}
+spriteset (dAAN_bridge_ballast, "grf/dAAN.png") {
+	tmpl_bridges_overlay()
+}
+spriteset (dAAN_bridge_no_ballast, "grf/dAAN_bridge.png") {
+	tmpl_bridges_overlay()
+}
+switch(FEAT_RAILTYPES, SELF, dAAN_bridge, BRIDGEBALLAST) {
+	2: dAAN_bridge_no_ballast;
+	dAAN_bridge_ballast;
+}
+spriteset (ss_dAAN_tunneltracks, "grf/SAAN_TUNNEL.png") {
+	tmpl_tunnel_overlaytracks(280)
+}
+spriteset (ss_dASN_tunneltracks, "grf/SASN_TUNNEL.png") {
+	tmpl_tunnel_overlaytracks(280)
+}
+switch(FEAT_RAILTYPES, SELF, dAAN_tunneltracks,terrain_type) {
+	TILETYPE_SNOW: ss_dASN_tunneltracks;
+	ss_dAAN_tunneltracks;
+}/*
+spriteset (NAAd_tunnel, "grf/LSM_Tunnel.png") {
+	tmpl_tunnel_overlaytracks(40)
+}*/
+/*
+spriteset (NAAd_depot, "grf/NAAd_Depot.png") {
+	tmpl_depot(8)
+}
+spriteset (NAAd_depot_nocc, "grf/NAAd_Depot_NOCC.png") {
+	tmpl_depot(8)
+}*/
+spriteset(dAAN_CROSS_O, "grf/dAAN_CROSS.png") {
+	tmpl_level_crossing_track_types_open(24)
+}
+spriteset(dAAN_CROSS_C, "grf/dAAN_CROSS.png") {
+	tmpl_level_crossing_track_types_closed(48)
+}
+switch(FEAT_RAILTYPES, SELF, sw_dAAN_sprite_crossing, level_crossing_status) {
+	LEVEL_CROSSING_CLOSED: dAAN_CROSS_C;
+	dAAN_CROSS_O;
+}
+spriteset(dASN_CROSS_O, "grf/dASN_CROSS.png") {
+	tmpl_level_crossing_track_types_open(24)
+}
+spriteset(dASN_CROSS_C, "grf/dASN_CROSS.png") {
+	tmpl_level_crossing_track_types_closed(48)
+}
+switch(FEAT_RAILTYPES, SELF, sw_dASN_sprite_crossing, level_crossing_status) {
+	LEVEL_CROSSING_CLOSED: dASN_CROSS_C;
+	dASN_CROSS_O;
+}
+switch(FEAT_RAILTYPES, SELF, sw_dAAN_crossing, terrain_type) {
+	TILETYPE_SNOW: sw_dASN_sprite_crossing;
+	sw_dAAN_sprite_crossing;
+}
+
+if (PARAM_DUAL && ((PARAM_NARROW != 2 && PARAM_SPEED == 0) || (PARAM_NARROW == 0 && PARAM_SPEED == 1))) {
+item(FEAT_RAILTYPES, dAAN_ID, 15) {
+     property {
+         label:                      "dAAN"; //first so replace
+         name:                       string(STR_dAAN);
+         menu_text:                  string(STR_dAAN);
+         build_window_caption:       string(STR_dAAN_BUILD_CAPTION);
+         autoreplace_text:           string(STR_dAAN_AUTOREPLACE);
+         new_engine_text:            string(STR_dAAN_NEW_ENGINE);
+		 toolbar_caption:			 string(STR_dAAN_TB_CAPTION);
+         compatible_railtype_list:   DUAL_ALL;
+         powered_railtype_list:      DUAL_ALL;
+		 alternative_railtype_list:  DUAL_UNELEC;       
+         speed_limit:                (PARAM_SPEED == 0) ? 80 : 40 km/h;       
+		 //introduction_date:			 date(1970,1,1);
+		 map_colour:				 0x0A;
+         station_graphics:           RAILTYPE_STATION_NORMAL; 
+         acceleration_model:         ACC_MODEL_RAIL;                   
+         construction_cost:          COSTPARAM(5,PARAM_CONST);             
+		 maintenance_cost:		     COSTPARAM(4,PARAM_MAINT);	
+		 sort_order:				 0x10; 		   
+     }
+     graphics {
+         track_overlay:		switch_dAAN_over_SNOW;				// defines the sprites drawn as overlay for junctions and highlight
+         underlay:			switch_dAAN_under_SNOW;				// defines the usual tracks and the underlay for junctions
+         bridge_surfaces:	dAAN_bridge;				// defines the overlay drawn over bridges
+		 tunnels:			dAAN_tunneltracks;			// defines the tracks drawn on a funnel tile
+         depots:            switch_depot_SAAN;    		// defines the depot sprites
+		 gui:				NAAN_gui;					// defines the gui sprites
+		 tunnel_overlay:	SAAN_tunnel;			// Custom Tunnel portals since v2
+		 level_crossings:	sw_dAAN_crossing;
+		 signals:			sw_new_signals;
+         fences:     	    NO_fences;         // Custom Fences since v2
+     }
+ }
+ }

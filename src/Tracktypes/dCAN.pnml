@@ -1,0 +1,61 @@
+//Standard Gauge Branch
+spriteset (dCAN_bridge_ballast, "grf/dCAN.png") {
+	tmpl_bridges_overlay()
+}
+spriteset (dCAN_bridge_no_ballast, "grf/dCAN_bridge.png") {
+	tmpl_bridges_overlay()
+}
+switch(FEAT_RAILTYPES, SELF, dCAN_bridge, BRIDGEBALLAST) {
+	2: dCAN_bridge_no_ballast;
+	dCAN_bridge_ballast;
+}
+switch(FEAT_RAILTYPES, SELF, dCAN_tunneltracks,terrain_type) {
+	TILETYPE_SNOW: ss_dCSN_tunneltracks;
+	ss_dCAN_tunneltracks;
+}/*
+spriteset (NBAd_tunnel, "grf/LSM_Tunnel.png") {
+	tmpl_tunnel_overlaytracks(40)
+}*/
+/*
+spriteset (NBAd_depot, "grf/NBAd_Depot.png") {
+	tmpl_depot(8)
+}
+spriteset (NBAd_depot_nocc, "grf/NBAd_Depot_NOCC.png") {
+	tmpl_depot(8)
+}*/
+if (PARAM_DUAL == 1 && PARAM_NARROW == 0) {
+item(FEAT_RAILTYPES, dCAN_ID, 26) {
+     property {
+         label:                      "dCAN"; //first so replace
+         name:                       string(STR_dCAN);
+         menu_text:                  string(STR_dCAN);
+         build_window_caption:       string(STR_dCAN_BUILD_CAPTION);
+         autoreplace_text:           string(STR_dCAN_AUTOREPLACE);
+         new_engine_text:            string(STR_dCAN_NEW_ENGINE);
+		 toolbar_caption:			 string(STR_dCAN_TB_CAPTION);
+         compatible_railtype_list:   DUAL_ALL;
+         powered_railtype_list:      DUAL_ALL;
+		 alternative_railtype_list:  DUAL_UNELEC;          
+         speed_limit:                (PARAM_SPEED == 0) ? 0 : 101 km/h;       
+		 //introduction_date:			 date(1970,1,1);
+		 map_colour:				 0x0A;
+         station_graphics:           RAILTYPE_STATION_NORMAL; 
+         acceleration_model:         ACC_MODEL_RAIL;                   
+         construction_cost:          COSTPARAM(19,PARAM_CONST);             
+		 maintenance_cost:		     COSTPARAM(19,PARAM_MAINT);		
+		 sort_order:				 0x12; 		   
+     }
+     graphics {
+         track_overlay:		switch_dCAN_over_SNOW;				// defines the sprites drawn as overlay for junctions and highlight
+         underlay:			switch_dCAN_under_SNOW;				// defines the usual tracks and the underlay for junctions
+         bridge_surfaces:	dCAN_bridge;				// defines the overlay drawn over bridges
+		 tunnels:			dCAN_tunneltracks;			// defines the tracks drawn on a funnel tile
+         depots:            switch_depot_SCAN;    		// defines the depot sprites
+		 gui:				NCAN_gui;					// defines the gui sprites
+		 tunnel_overlay:	SAAN_tunnel;			// Custom Tunnel portals since v2
+		 level_crossings:	sw_dCAN_crossing;
+		 signals:			sw_new_signals;
+         fences:     	    NO_fences;         // Custom Fences since v2
+     }
+ }
+}

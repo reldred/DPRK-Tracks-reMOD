@@ -1,0 +1,66 @@
+//Standard Gauge Branch
+spriteset (dUAN_underlay, "grf/dUAN.png") {
+	tmpl_underlay_track_types_U()
+}
+spriteset (dUAN_overlay, "grf/dBAN.png") {
+	tmpl_overlay_track_types()
+}
+switch(FEAT_RAILTYPES, SELF, switch_dUAN_under_SNOW,terrain_type) {
+	TILETYPE_SNOW: dBAN_snow_underlay;
+	dUAN_underlay;
+}
+switch(FEAT_RAILTYPES, SELF, switch_dUAN_over_SNOW,terrain_type) {
+	TILETYPE_SNOW: dBAN_snow_overlay;
+	dUAN_overlay;
+}
+spriteset (ss_dUAN_tunneltracks, "grf/SSA3_TUNNEL.png") {
+	tmpl_tunnel_overlaytracks(160)
+}
+spriteset (ss_dUSN_tunneltracks, "grf/SSS3_TUNNEL.png") {
+	tmpl_tunnel_overlaytracks(160)
+}
+switch(FEAT_RAILTYPES, SELF, dUAN_tunneltracks,terrain_type) {
+	TILETYPE_SNOW: ss_dUSN_tunneltracks;
+	ss_dUAN_tunneltracks;
+}
+switch(FEAT_RAILTYPES, SELF, switch_dUAN_tunnel, PARAM_UTUNNEL) {
+	1: dUAN_tunneltracks;
+	dBAN_tunneltracks;
+}
+
+if (PARAM_DUAL == 1 && PARAM_NARROW == 0 && PARAM_URBAN) {
+item(FEAT_RAILTYPES, dUAN_ID, 22) {
+     property {
+         label:                      "dUAN"; //first so replace
+         name:                       string(STR_dUAN);
+         menu_text:                  string(STR_dUAN);
+         build_window_caption:       string(STR_dUAN_BUILD_CAPTION);
+         autoreplace_text:           string(STR_dUAN_AUTOREPLACE);
+         new_engine_text:            string(STR_dUAN_NEW_ENGINE);
+		 toolbar_caption:			 string(STR_dUAN_TB_CAPTION);
+         compatible_railtype_list:   DUAL_ALL;
+         powered_railtype_list:      DUAL_ALL;
+		 alternative_railtype_list:  DUAL_UNELEC;       
+         speed_limit:                (PARAM_SPEED == 0) ? 121 : 70 km/h;       
+		 //introduction_date:			 date(1970,1,1);
+		 map_colour:				 0x0A;
+         station_graphics:           RAILTYPE_STATION_NORMAL; 
+         acceleration_model:         ACC_MODEL_RAIL;                   
+         construction_cost:          COSTPARAM(5,PARAM_CONST);             
+		 maintenance_cost:		     COSTPARAM(4,PARAM_MAINT);	
+		 sort_order:				 0x13; 		   
+     }
+     graphics {
+         track_overlay:		switch_dUAN_over_SNOW;				// defines the sprites drawn as overlay for junctions and highlight
+         underlay:			switch_dUAN_under_SNOW;				// defines the usual tracks and the underlay for junctions
+         bridge_surfaces:	dBAN_bridge;				// defines the overlay drawn over bridges
+		 tunnels:			switch_dUAN_tunnel;			// defines the tracks drawn on a funnel tile
+         depots:            switch_depot_SUAN;    		// defines the depot sprites
+		 gui:				NUAN_gui;					// defines the gui sprites
+		 tunnel_overlay:	switch_urban_tunnel;			// Custom Tunnel portals since v2
+		 level_crossings:	sw_dBAN_crossing;
+		 signals:			sw_new_signals;
+         fences:     	    NO_fences;         // Custom Fences since v2
+     }
+ }
+ }

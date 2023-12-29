@@ -1,0 +1,127 @@
+//Standard Gauge Branch
+spriteset (SBAN_underlay, "grf/SBAN.png") {
+	tmpl_underlay_track_types()
+}
+spriteset (SBAN_overlay, "grf/SBAN.png") {
+	tmpl_overlay_track_types()
+}
+spriteset (SBAN_snow_underlay, "grf/SBSN.png") {
+	tmpl_underlay_track_types()
+}
+spriteset (SBAN_snow_overlay, "grf/SBSN.png") {
+	tmpl_overlay_track_types()
+}
+switch(FEAT_RAILTYPES, SELF, switch_SBAN_under_SNOW,terrain_type) {
+	TILETYPE_SNOW: SBAN_snow_underlay;
+	SBAN_underlay;
+}
+switch(FEAT_RAILTYPES, SELF, switch_SBAN_over_SNOW,terrain_type) {
+	TILETYPE_SNOW: SBAN_snow_overlay;
+	SBAN_overlay;
+}
+spriteset (SBAN_bridge_ballast, "grf/SBAN.png") {
+	tmpl_bridges_overlay()
+}
+spriteset (SBAN_bridge_no_ballast, "grf/SBAN_bridge.png") {
+	tmpl_bridges_overlay()
+}
+switch(FEAT_RAILTYPES, SELF, SBAN_bridge, BRIDGEBALLAST) {
+	2: SBAN_bridge_no_ballast;
+	SBAN_bridge_ballast;
+}
+spriteset (ss_SBAN_tunneltracks, "grf/SAAN_TUNNEL.png") {
+	tmpl_tunnel_overlaytracks(80)
+}
+spriteset (ss_SBSN_tunneltracks, "grf/SASN_TUNNEL.png") {
+	tmpl_tunnel_overlaytracks(80)
+}
+switch(FEAT_RAILTYPES, SELF, SBAN_tunneltracks,terrain_type) {
+	TILETYPE_SNOW: ss_SBSN_tunneltracks;
+	ss_SBAN_tunneltracks;
+}/*
+spriteset (SBAN_tunnel, "grf/LSM_Tunnel.png") {
+	tmpl_tunnel_overlaytracks(40)
+}*/
+spriteset (SBAN_gui, "grf/SBAN_GUI.png") {
+	tmpl_gui()
+}
+spriteset (SBAN_depot, "grf/SBAN_Depot.png") {
+	tmpl_depot(8)
+}
+spriteset (SBAN_depot_nocc, "grf/SBAN_Depot_NoCC.png") {
+	tmpl_depot(8)
+}
+spriteset (SBAN_depot_snow, "grf/SBAN_Depot_Snow.png") {
+	tmpl_depot(8)
+}
+switch(FEAT_RAILTYPES, SELF, switch_depot_SBAN_CC, PARAM_CC) {
+	1: SBAN_depot;
+	SBAN_depot_nocc;
+}
+switch(FEAT_RAILTYPES, SELF, switch_depot_SBAN_SNOW,terrain_type) {
+	TILETYPE_SNOW: SBAN_depot_snow;
+	switch_depot_SBAN_CC;
+}
+switch(FEAT_RAILTYPES, SELF, switch_depot_SBAN, PARAM_DEPOT) {
+	1: CB_FAILED;
+	switch_depot_SBAN_SNOW;
+}
+spriteset(SBAN_CROSS_O, "grf/SBAN_CROSS.png") {
+	tmpl_level_crossing_track_types_open(24)
+}
+spriteset(SBAN_CROSS_C, "grf/SBAN_CROSS.png") {
+	tmpl_level_crossing_track_types_closed(48)
+}
+switch(FEAT_RAILTYPES, SELF, sw_SBAN_sprite_crossing, level_crossing_status) {
+	LEVEL_CROSSING_CLOSED: SBAN_CROSS_C;
+	SBAN_CROSS_O;
+}
+spriteset(SBSN_CROSS_O, "grf/SBSN_CROSS.png") {
+	tmpl_level_crossing_track_types_open(24)
+}
+spriteset(SBSN_CROSS_C, "grf/SBSN_CROSS.png") {
+	tmpl_level_crossing_track_types_closed(48)
+}
+switch(FEAT_RAILTYPES, SELF, sw_SBSN_sprite_crossing, level_crossing_status) {
+	LEVEL_CROSSING_CLOSED: SBSN_CROSS_C;
+	SBSN_CROSS_O;
+}
+switch(FEAT_RAILTYPES, SELF, sw_SBAN_crossing, terrain_type) {
+	TILETYPE_SNOW: sw_SBSN_sprite_crossing;
+	sw_SBAN_sprite_crossing;
+}
+
+item(FEAT_RAILTYPES, SBAN_ID, 1) {
+     property {
+         label:                      "SBAN";//First of its kind gotta replace
+         name:                       string(STR_SBAN);
+         menu_text:                  string(STR_SBAN);
+         build_window_caption:       string(STR_SBAN_BUILD_CAPTION);
+         autoreplace_text:           string(STR_SBAN_AUTOREPLACE);
+         new_engine_text:            string(STR_SBAN_NEW_ENGINE);
+		 toolbar_caption:			 string(STR_SBAN_TB_CAPTION);
+         compatible_railtype_list:   STD_ALL;
+         powered_railtype_list:      STD_ALL;
+		 alternative_railtype_list:  STD_UNELEC;       
+         speed_limit:                (PARAM_SPEED == 0) ? 121 : 70 km/h;       
+		 introduction_date:			 date((PARAM_INTRO == 1) ? 0 : 1960,1,1);
+		 map_colour:				 0x0B;
+         station_graphics:           RAILTYPE_STATION_NORMAL; 
+         acceleration_model:         ACC_MODEL_RAIL;                   
+         construction_cost:          COSTPARAM(8,PARAM_CONST);             
+		 maintenance_cost:		     COSTPARAM(8,PARAM_MAINT);		
+		 sort_order:				 0x01;	   
+     }
+     graphics {
+         track_overlay:		switch_SBAN_over_SNOW;				// defines the sprites drawn as overlay for junctions and highlight
+         underlay:			switch_SBAN_under_SNOW;				// defines the usual tracks and the underlay for junctions
+         bridge_surfaces:	SBAN_bridge;				// defines the overlay drawn over bridges
+		 tunnels:			SBAN_tunneltracks;			// defines the tracks drawn on a funnel tile
+         depots:            switch_depot_SBAN;    	// defines the depot sprites
+		 gui:				SBAN_gui;					// defines the gui sprites
+		 tunnel_overlay:	SAAN_tunnel;			// Custom Tunnel portals since v2
+		 level_crossings:	sw_SBAN_crossing;
+		 signals:			sw_new_signals;
+         fences:         	NO_fences;         // Custom Fences since v2
+     }
+ }

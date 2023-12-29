@@ -1,0 +1,79 @@
+//Standard Gauge Branch
+spriteset (SCAN_bridge_ballast, "grf/SCAN.png") {
+	tmpl_bridges_overlay()
+}
+spriteset (SCAN_bridge_no_ballast, "grf/SCAN_bridge.png") {
+	tmpl_bridges_overlay()
+}
+switch(FEAT_RAILTYPES, SELF, SCAN_bridge, BRIDGEBALLAST) {
+	2: SCAN_bridge_no_ballast;
+	SCAN_bridge_ballast;
+}
+switch(FEAT_RAILTYPES, SELF, SCAN_tunneltracks,terrain_type) {
+	TILETYPE_SNOW: ss_SCSN_tunneltracks;
+	ss_SCAN_tunneltracks;
+}
+/*spriteset (SCAN_tunnel, "grf/LSM_Tunnel.png") {
+	tmpl_tunnel_overlaytracks(40)
+}*/
+spriteset (SCAN_gui, "grf/SCAN_GUI.png") {
+	tmpl_gui()
+}/*
+spriteset (SCAN_depot_nocc, "grf/SCAN_Depot_NoCC.png") {
+	tmpl_depot(8)
+}
+switch(FEAT_RAILTYPES, SELF, switch_depot_SCAN_CC, PARAM_CC) {
+	1: SBAN_depot;
+	SCAN_depot_nocc;
+}
+switch(FEAT_RAILTYPES, SELF, switch_depot_SCAN_SNOW, terrain_type) {
+	TILETYPE_SNOW: SBAN_depot_snow;
+	switch_depot_SCAN_CC;
+}
+switch(FEAT_RAILTYPES, SELF, switch_depot_SCAN, PARAM_DEPOT) {
+	1: CB_FAILED;
+	switch_depot_SCAN_SNOW;
+}
+
+spriteset(SCAN_pylons, "grf/SCAN_PYLON.png") {
+template_catenarydoublepylons()
+}
+/*
+spriteset(SCAN_wires, "gfx/ELRL/CatenaryWires_ELRL.png") {
+template_catenarywires()
+}*/
+
+item(FEAT_RAILTYPES, SCAN_ID, 24) {
+     property {
+         label:                      "SCAN";
+         name:                       string(STR_SCAN);
+         menu_text:                  string(STR_SCAN);
+         build_window_caption:       string(STR_SCAN_BUILD_CAPTION);
+         autoreplace_text:           string(STR_SCAN_AUTOREPLACE);
+         new_engine_text:            string(STR_SCAN_NEW_ENGINE);
+		 toolbar_caption:			 string(STR_SCAN_TB_CAPTION);
+         compatible_railtype_list:   STD_ALL;
+         powered_railtype_list:      STD_ALL;
+		 alternative_railtype_list:  STD_UNELEC;     
+         speed_limit:                (PARAM_SPEED == 0) ? 0 : 101 km/h;       
+		 introduction_date:			 date((PARAM_INTRO == 1) ? 0 : 1980,1,1);
+		 map_colour:				 0x0B;
+         station_graphics:           RAILTYPE_STATION_NORMAL; 
+         acceleration_model:         ACC_MODEL_RAIL;                   
+         construction_cost:          COSTPARAM(18,PARAM_CONST);             
+		 maintenance_cost:		     COSTPARAM(18,PARAM_MAINT);
+		 sort_order:				 0x02;
+     }
+     graphics {
+         track_overlay:		switch_SCAN_over_SNOW;				// defines the sprites drawn as overlay for junctions and highlight
+         underlay:			switch_SCAN_under_SNOW;				// defines the usual tracks and the underlay for junctions
+         bridge_surfaces:	SCAN_bridge;				// defines the overlay drawn over bridges
+		 tunnels:			SCAN_tunneltracks;			// defines the tracks drawn on a funnel tile
+         depots:            switch_depot_SCAN;    	// defines the depot sprites
+		 gui:				SCAN_gui;					// defines the gui sprites
+		 tunnel_overlay:	SAAN_tunnel;			// Custom Tunnel portals since v2
+         fences:         	NO_fences;         // Custom Fences since v2
+		 level_crossings:	sw_SCAN_crossing;
+		 signals:			sw_new_signals;
+     }
+ }

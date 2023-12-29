@@ -1,0 +1,134 @@
+//Standard Gauge Branch
+spriteset (SAAN_underlay, "grf/SAAN.png") {
+	tmpl_underlay_track_types()
+}
+spriteset (SAAN_overlay, "grf/SAAN.png") {
+	tmpl_overlay_track_types()
+}
+spriteset (SAAN_snow_underlay, "grf/SASN.png") {
+	tmpl_underlay_track_types()
+}
+spriteset (SAAN_snow_overlay, "grf/SASN.png") {
+	tmpl_overlay_track_types()
+}
+switch(FEAT_RAILTYPES, SELF, switch_SAAN_under_SNOW,terrain_type) {
+	TILETYPE_SNOW: SAAN_snow_underlay;
+	SAAN_underlay;
+}
+switch(FEAT_RAILTYPES, SELF, switch_SAAN_over_SNOW,terrain_type) {
+	TILETYPE_SNOW: SAAN_snow_overlay;
+	SAAN_overlay;
+}
+spriteset (SAAN_bridge_ballast, "grf/SAAN.png") {
+	tmpl_bridges_overlay()
+}
+spriteset (SAAN_bridge_no_ballast, "grf/SAAN_bridge.png") {
+	tmpl_bridges_overlay()
+}
+switch(FEAT_RAILTYPES, SELF, SAAN_bridge, BRIDGEBALLAST) {
+	2: SAAN_bridge_no_ballast;
+	SAAN_bridge_ballast;
+}
+spriteset (ss_SAAN_tunneltracks, "grf/SAAN_TUNNEL.png") {
+	tmpl_tunnel_overlaytracks(40)
+}
+spriteset (ss_SASN_tunneltracks, "grf/SASN_TUNNEL.png") {
+	tmpl_tunnel_overlaytracks(40)
+}
+switch(FEAT_RAILTYPES, SELF, SAAN_tunneltracks,terrain_type) {
+	TILETYPE_SNOW: ss_SASN_tunneltracks;
+	ss_SAAN_tunneltracks;
+}
+spriteset (ss_SAAN_tunnel, "grf/SAAN_TUNNEL.png") {
+	tmpl_tunnel_overlays(0)
+}
+spriteset (ss_SASN_tunnel, "grf/SASN_TUNNEL.png") {
+	tmpl_tunnel_overlays(0)
+}
+switch(FEAT_RAILTYPES, SELF, SAAN_tunnel,terrain_type) {
+	TILETYPE_SNOW: ss_SASN_tunnel;
+	ss_SAAN_tunnel;
+}
+spriteset (SAAN_gui, "grf/SAAN_GUI.png") {
+	tmpl_gui()
+}
+spriteset (SAAN_depot, "grf/SAAN_Depot.png") {
+	tmpl_depot(8)
+}
+spriteset (SAAN_depot_nocc, "grf/SAAN_Depot_NoCC.png") {
+	tmpl_depot(8)
+}
+spriteset (SAAN_depot_snow, "grf/SAAN_Depot_Snow.png") {
+	tmpl_depot(8)
+}
+switch(FEAT_RAILTYPES, SELF, switch_depot_SAAN_CC, PARAM_CC) {
+	1: SAAN_depot;
+	SAAN_depot_nocc;
+}
+switch(FEAT_RAILTYPES, SELF, switch_depot_SAAN_SNOW, terrain_type) {
+	TILETYPE_SNOW: SAAN_depot_snow;
+	switch_depot_SAAN_CC;
+}
+switch(FEAT_RAILTYPES, SELF, switch_depot_SAAN, PARAM_DEPOT) {
+	1: CB_FAILED;
+	switch_depot_SAAN_SNOW;
+}
+spriteset(SAAN_CROSS_O, "grf/SAAN_CROSS.png") {
+	tmpl_level_crossing_track_types_open(24)
+}
+spriteset(SAAN_CROSS_C, "grf/SAAN_CROSS.png") {
+	tmpl_level_crossing_track_types_closed(48)
+}
+switch(FEAT_RAILTYPES, SELF, sw_SAAN_sprite_crossing, level_crossing_status) {
+	LEVEL_CROSSING_CLOSED: SAAN_CROSS_C;
+	SAAN_CROSS_O;
+}
+spriteset(SASN_CROSS_O, "grf/SASN_CROSS.png") {
+	tmpl_level_crossing_track_types_open(24)
+}
+spriteset(SASN_CROSS_C, "grf/SASN_CROSS.png") {
+	tmpl_level_crossing_track_types_closed(48)
+}
+switch(FEAT_RAILTYPES, SELF, sw_SASN_sprite_crossing, level_crossing_status) {
+	LEVEL_CROSSING_CLOSED: SASN_CROSS_C;
+	SASN_CROSS_O;
+}
+switch(FEAT_RAILTYPES, SELF, sw_SAAN_crossing, terrain_type) {
+	TILETYPE_SNOW: sw_SASN_sprite_crossing;
+	sw_SAAN_sprite_crossing;
+}
+
+item(FEAT_RAILTYPES, SAAN_ID, 0) {
+     property {
+         label:                      "RAIL";//First of its kind gotta replace
+         name:                       string(STR_SAAN);
+         menu_text:                  string(STR_SAAN);
+         build_window_caption:       string(STR_SAAN_BUILD_CAPTION);
+         autoreplace_text:           string(STR_SAAN_AUTOREPLACE);
+         new_engine_text:            string(STR_SAAN_NEW_ENGINE);
+		 toolbar_caption:			 string(STR_SAAN_TB_CAPTION);
+         compatible_railtype_list:   STD_ALL;
+         powered_railtype_list:      STD_ALL;
+		 alternative_railtype_list:  STD_UNELEC;       
+         speed_limit:                (PARAM_SPEED == 0) ? 80 : 40 km/h;       
+		 //introduction_date:			 date(1970,1,1);
+		 map_colour:				 0x0B;
+         station_graphics:           RAILTYPE_STATION_NORMAL; 
+         acceleration_model:         ACC_MODEL_RAIL;                   
+         construction_cost:          COSTPARAM(6,PARAM_CONST);             
+		 maintenance_cost:		     COSTPARAM(6,PARAM_MAINT);		
+		 sort_order:				 0x00;	   
+     }
+     graphics {
+         track_overlay:		switch_SAAN_over_SNOW;				// defines the sprites drawn as overlay for junctions and highlight
+         underlay:			switch_SAAN_under_SNOW;				// defines the usual tracks and the underlay for junctions
+         bridge_surfaces:	SAAN_bridge;				// defines the overlay drawn over bridges
+		 tunnels:			SAAN_tunneltracks;			// defines the tracks drawn on a funnel tile
+         depots:            switch_depot_SAAN;    	// defines the depot sprites
+		 gui:				SAAN_gui;					// defines the gui sprites
+		 tunnel_overlay:	SAAN_tunnel;			// Custom Tunnel portals since v2
+		 level_crossings:	sw_SAAN_crossing;
+		 signals:			sw_new_signals;
+         fences:          NO_fences;         // Custom Fences since v2
+     }
+ }

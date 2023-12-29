@@ -1,0 +1,94 @@
+//Standard Gauge Branch
+spriteset (SSA3_underlay, "grf/SUA3.png") {
+	tmpl_underlay_track_types()
+}
+spriteset (SSA3_overlay, "grf/SUA3.png") {
+	tmpl_overlay_track_types()
+}
+spriteset (SSA3_bridge, "grf/SUA3.png") {
+	tmpl_bridges_overlay()
+}
+spriteset (SSA3_tunnel, "grf/SSA3_TUNNEL.png") {
+	tmpl_tunnel_overlays(0)
+}
+spriteset (SSA3_tunneltracks, "grf/SSA3_TUNNEL.png") {
+	tmpl_tunnel_overlaytracks(40)
+}
+spriteset (SSS3_tunnel, "grf/SSS3_TUNNEL.png") {
+	tmpl_tunnel_overlays(0)
+}
+spriteset (SSS3_tunneltracks, "grf/SSS3_TUNNEL.png") {
+	tmpl_tunnel_overlaytracks(40)
+}
+switch(FEAT_RAILTYPES, SELF, switch_tunnel_SSAN, terrain_type) {
+	TILETYPE_SNOW: SSS3_tunnel;
+	SSA3_tunnel;
+}
+spriteset(SSA3_pylons, "grf/SSA3_WIRE.png") {
+template_nopylons()
+}
+spriteset(SSA3_wires, "grf/SSA3_WIRE.png") {
+template_metroroof()
+}
+spriteset(SSS3_wires, "grf/SSS3_WIRE.png") {
+template_metroroof()
+}
+switch(FEAT_RAILTYPES, SELF, switch_wires_SSAN, terrain_type) {
+	TILETYPE_SNOW: SSS3_wires;
+	SSA3_wires;
+}
+spriteset (SSA3_gui, "grf/SSA3_GUI.png") {
+	tmpl_gui()
+}
+spriteset (SSAN_depot_nocc, "grf/SSA3_Depot.png") {
+	tmpl_depot(8)
+}
+spriteset (SSS3_depot_nocc, "grf/SSS3_Depot.png") {
+	tmpl_depot(8)
+}
+switch(FEAT_RAILTYPES, SELF, switch_depot_SSAN_SNOW, terrain_type) {
+	TILETYPE_SNOW: SSS3_depot_nocc;
+	SSAN_depot_nocc;
+}
+switch(FEAT_RAILTYPES, SELF, switch_depot_SSAN, PARAM_DEPOT) {
+	1: CB_FAILED;
+	switch_depot_SSAN_SNOW;
+}
+if (PARAM_METRO == 0 || PARAM_METRO == 1) {
+item(FEAT_RAILTYPES, SSA3_ID, 12) {
+     property {
+         label:                      "SSA3";
+         name:                       string(STR_SSA3);
+         menu_text:                  string(STR_SSA3);
+         build_window_caption:       string(STR_SSA3_BUILD_CAPTION);
+         autoreplace_text:           string(STR_SSA3_AUTOREPLACE);
+         new_engine_text:            string(STR_SSA3_NEW_ENGINE);
+		 toolbar_caption:			 string(STR_SSA3_TB_CAPTION);
+         compatible_railtype_list:   STD_3RD;
+         powered_railtype_list:      STD_3RD;
+		 alternative_railtype_list:  STD_3RD;       
+         speed_limit:                91 km/h;         
+		 introduction_date:			 date((PARAM_INTRO == 1) ? 0 : 1965,1,1);
+		 map_colour:				 0xC3;
+         station_graphics:           RAILTYPE_STATION_NORMAL; 
+         acceleration_model:         ACC_MODEL_RAIL;                   
+         construction_cost:          COSTPARAM(12,PARAM_CONST);             
+		 maintenance_cost:		     COSTPARAM(10,PARAM_MAINT);	
+		 railtype_flags: 			 bitmask(RAILTYPE_FLAG_NO_LEVEL_CROSSING, RAILTYPE_FLAG_CATENARY);		
+		 sort_order:				 0x1A;
+     }
+     graphics {
+         track_overlay:		SSA3_overlay;				// defines the sprites drawn as overlay for junctions and highlight
+         underlay:			SSA3_underlay;				// defines the usual tracks and the underlay for junctions
+         bridge_surfaces:	SSA3_bridge;				// defines the overlay drawn over bridges
+		 tunnels:			SSA3_tunneltracks;			// defines the tracks drawn on a funnel tile
+         depots:            switch_depot_SSAN;    	// defines the depot sprites
+		 gui:				SSA3_gui;					// defines the gui sprites
+		 signals:			sw_new_signals;
+		 tunnel_overlay:	switch_tunnel_SSAN;			// Custom Tunnel portals since v2
+         fences:         	NO_fences;         // Custom Fences since v2
+		 catenary_wire: 	switch_wires_SSAN;
+		 catenary_pylons: 	SSA3_pylons;
+     }
+ }
+}

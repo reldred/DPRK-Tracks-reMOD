@@ -1,0 +1,70 @@
+//Standard Gauge Branch
+spriteset (NUAN_underlay, "grf/NUAN.png") {
+	tmpl_underlay_track_types_U()
+}
+spriteset (NUAN_overlay, "grf/NBAN.png") {
+	tmpl_overlay_track_types()
+}
+switch(FEAT_RAILTYPES, SELF, switch_NUAN_under_SNOW,terrain_type) {
+	TILETYPE_SNOW: NBAN_snow_underlay;
+	NUAN_underlay;
+}
+switch(FEAT_RAILTYPES, SELF, switch_NUAN_over_SNOW,terrain_type) {
+	TILETYPE_SNOW: NBAN_snow_overlay;
+	NUAN_overlay;
+}
+spriteset (NUAN_gui, "grf/NUAN_GUI.png") {
+	tmpl_gui()
+}
+spriteset (ss_NUAN_tunneltracks, "grf/SSA3_TUNNEL.png") {
+	tmpl_tunnel_overlaytracks(120)
+}
+spriteset (ss_NUSN_tunneltracks, "grf/SSS3_TUNNEL.png") {
+	tmpl_tunnel_overlaytracks(120)
+}
+switch(FEAT_RAILTYPES, SELF, NUAN_tunneltracks,terrain_type) {
+	TILETYPE_SNOW: ss_NUSN_tunneltracks;
+	ss_NUAN_tunneltracks;
+}
+switch(FEAT_RAILTYPES, SELF, switch_NUAN_tunnel, PARAM_UTUNNEL) {
+	1: NUAN_tunneltracks;
+	NBAN_tunneltracks;
+}
+
+if (PARAM_NARROW == 0 && PARAM_URBAN) {
+item(FEAT_RAILTYPES, NUAN_ID, 20) {
+     property {
+         label:                      "NUAN";
+         name:                       string(STR_NUAN);
+         menu_text:                  string(STR_NUAN);
+         build_window_caption:       string(STR_NUAN_BUILD_CAPTION);
+         autoreplace_text:           string(STR_NUAN_AUTOREPLACE);
+         new_engine_text:            string(STR_NUAN_NEW_ENGINE);
+		 toolbar_caption:			 string(STR_NUAN_TB_CAPTION);
+         compatible_railtype_list:   NRW_ALL;
+         powered_railtype_list:      NRW_ALL;
+		 alternative_railtype_list:  NRW_UNELEC;       
+         speed_limit:                (PARAM_SPEED == 0) ? 121 : 70 km/h;       
+		 introduction_date:			 date((PARAM_INTRO == 1) ? 0 : 1960,1,1);
+		 map_colour:				 0x0C;
+         station_graphics:           RAILTYPE_STATION_NORMAL; 
+         acceleration_model:         ACC_MODEL_RAIL;                   
+         construction_cost:          COSTPARAM(5,PARAM_CONST);             
+		 maintenance_cost:		     COSTPARAM(4,PARAM_MAINT);		
+		 sort_order:				 0x0B;	   
+		 introduces_railtype_list:	 ["dUAN"];
+     }
+     graphics {
+         track_overlay:		switch_NUAN_over_SNOW;				// defines the sprites drawn as overlay for junctions and highlight
+         underlay:			switch_NUAN_under_SNOW;				// defines the usual tracks and the underlay for junctions
+         bridge_surfaces:	NBAN_bridge;				// defines the overlay drawn over bridges
+		 tunnels:			switch_NUAN_tunnel;			// defines the tracks drawn on a funnel tile
+         depots:            switch_depot_SUAN;    	// defines the depot sprites
+		 gui:				NUAN_gui;					// defines the gui sprites
+		 tunnel_overlay:	switch_urban_tunnel;			// Custom Tunnel portals since v2
+		 level_crossings:	sw_NBAN_crossing;
+		 signals:			sw_new_signals;
+         fences:         	NO_fences;         // Custom Fences since v2
+     }
+ }
+ }

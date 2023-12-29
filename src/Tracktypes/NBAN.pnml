@@ -1,0 +1,109 @@
+//Standard Gauge Branch
+spriteset (NBAN_underlay, "grf/NBAN.png") {
+	tmpl_underlay_track_types()
+}
+spriteset (NBAN_overlay, "grf/NBAN.png") {
+	tmpl_overlay_track_types()
+}
+spriteset (NBAN_snow_underlay, "grf/NBSN.png") {
+	tmpl_underlay_track_types()
+}
+spriteset (NBAN_snow_overlay, "grf/NBSN.png") {
+	tmpl_overlay_track_types()
+}
+switch(FEAT_RAILTYPES, SELF, switch_NBAN_under_SNOW,terrain_type) {
+	TILETYPE_SNOW: NBAN_snow_underlay;
+	NBAN_underlay;
+}
+switch(FEAT_RAILTYPES, SELF, switch_NBAN_over_SNOW,terrain_type) {
+	TILETYPE_SNOW: NBAN_snow_overlay;
+	NBAN_overlay;
+}
+spriteset (NBAN_bridge_ballast, "grf/NBAN.png") {
+	tmpl_bridges_overlay()
+}
+spriteset (NBAN_bridge_no_ballast, "grf/NBAN_bridge.png") {
+	tmpl_bridges_overlay()
+}
+switch(FEAT_RAILTYPES, SELF, NBAN_bridge, BRIDGEBALLAST) {
+	2: NBAN_bridge_no_ballast;
+	NBAN_bridge_ballast;
+}
+spriteset (ss_NBAN_tunneltracks, "grf/SAAN_TUNNEL.png") {
+	tmpl_tunnel_overlaytracks(200)
+}
+spriteset (ss_NBSN_tunneltracks, "grf/SASN_TUNNEL.png") {
+	tmpl_tunnel_overlaytracks(200)
+}
+switch(FEAT_RAILTYPES, SELF, NBAN_tunneltracks,terrain_type) {
+	TILETYPE_SNOW: ss_NBSN_tunneltracks;
+	ss_NBAN_tunneltracks;
+}/*
+spriteset (NBAN_tunnel, "grf/LSM_Tunnel.png") {
+	tmpl_tunnel_overlaytracks(40)
+}*/
+spriteset (NBAN_gui, "grf/NBAN_GUI.png") {
+	tmpl_gui()
+}
+spriteset(NBAN_CROSS_O, "grf/NBAN_CROSS.png") {
+	tmpl_level_crossing_track_types_open(24)
+}
+spriteset(NBAN_CROSS_C, "grf/NBAN_CROSS.png") {
+	tmpl_level_crossing_track_types_closed(48)
+}
+switch(FEAT_RAILTYPES, SELF, sw_NBAN_sprite_crossing, level_crossing_status) {
+	LEVEL_CROSSING_CLOSED: NBAN_CROSS_C;
+	NBAN_CROSS_O;
+}
+spriteset(NBSN_CROSS_O, "grf/NBSN_CROSS.png") {
+	tmpl_level_crossing_track_types_open(24)
+}
+spriteset(NBSN_CROSS_C, "grf/NBSN_CROSS.png") {
+	tmpl_level_crossing_track_types_closed(48)
+}
+switch(FEAT_RAILTYPES, SELF, sw_NBSN_sprite_crossing, level_crossing_status) {
+	LEVEL_CROSSING_CLOSED: NBSN_CROSS_C;
+	NBSN_CROSS_O;
+}
+switch(FEAT_RAILTYPES, SELF, sw_NBAN_crossing, terrain_type) {
+	TILETYPE_SNOW: sw_NBSN_sprite_crossing;
+	sw_NBAN_sprite_crossing;
+}
+
+if ((PARAM_NARROW != 2 && PARAM_SPEED == 1) || (PARAM_NARROW == 0 && PARAM_SPEED == 0)) {
+item(FEAT_RAILTYPES, NBAN_ID, 8) {
+     property {
+         label:                      "NBAN";
+         name:                       string(STR_NBAN);
+         menu_text:                  string(STR_NBAN);
+         build_window_caption:       string(STR_NBAN_BUILD_CAPTION);
+         autoreplace_text:           string(STR_NBAN_AUTOREPLACE);
+         new_engine_text:            string(STR_NBAN_NEW_ENGINE);
+		 toolbar_caption:			 string(STR_NBAN_TB_CAPTION);
+         compatible_railtype_list:   NRW_ALL;
+         powered_railtype_list:      NRW_ALL;
+		 alternative_railtype_list:  NRW_UNELEC;       
+         speed_limit:                (PARAM_SPEED == 0) ? 121 : 70 km/h;       
+		 introduction_date:			 date((PARAM_INTRO == 1) ? 0 : 1960,1,1);
+		 map_colour:				 0x0C;
+         station_graphics:           RAILTYPE_STATION_NORMAL; 
+         acceleration_model:         ACC_MODEL_RAIL;                   
+         construction_cost:          COSTPARAM(5,PARAM_CONST);             
+		 maintenance_cost:		     COSTPARAM(4,PARAM_MAINT);		
+		 sort_order:				 0x09;	   
+		 introduces_railtype_list:	 ["dBAN"];
+     }
+     graphics {
+         track_overlay:		switch_NBAN_over_SNOW;				// defines the sprites drawn as overlay for junctions and highlight
+         underlay:			switch_NBAN_under_SNOW;				// defines the usual tracks and the underlay for junctions
+         bridge_surfaces:	NBAN_bridge;				// defines the overlay drawn over bridges
+		 tunnels:			NBAN_tunneltracks;			// defines the tracks drawn on a funnel tile
+         depots:            switch_depot_SBAN;    	// defines the depot sprites
+		 gui:				NBAN_gui;					// defines the gui sprites
+		 tunnel_overlay:	SAAN_tunnel;			// Custom Tunnel portals since v2
+		 level_crossings:	sw_NBAN_crossing;
+		 signals:			sw_new_signals;
+         fences:         	NO_fences;         // Custom Fences since v2
+     }
+ }
+ }

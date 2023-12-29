@@ -1,0 +1,84 @@
+1.9 - 13/11/2021
+------------------------------------------------------------------------
+Added: Parameter to turn on fences
+
+1.8 - 26/04/2021
+------------------------------------------------------------------------
+Added: Parameter to change if bridges have ballast
+Translation: Korean
+
+1.7.1 - 10/03/2021
+------------------------------------------------------------------------
+Added: Parameter to turn off custom depots
+
+1.7 - 11/01/2021
+------------------------------------------------------------------------
+Added: Parameter for urban tunnels
+Added: Map colours for tracktypes
+Fixed: Urban tracks showing the wrong tunnels
+Fixed: Missed pixels on urban tracks
+
+1.6 - 01/01/2021
+------------------------------------------------------------------------
+Added: Snow awareness
+Fixed: Tunnels now compatible with OpenGFX+ Landscape
+Changed: Subway darker to reflect changes in v2 of the house set
+Reverted: Narrow gauge tracks have the same pylons again
+
+1.5 - 12/11/2020
+------------------------------------------------------------------------
+Changed: Ground under underground metro now has urban ground
+Fixed: Graphical error in junctions
+Fixed: Urban metro tracks now sells trains
+
+1.4 - 28/10/2020
+------------------------------------------------------------------------
+Added: Option to replace signals on tracks not from this newgrf with new signals
+Added: Option to add only urban 3rd rail tracks 
+Added: Underground depot for underground metro
+Changed: Bridge sprites no longer have ballast 
+Changed: Tweaked urban ground sprite
+Changed: Depots now match the ones in the station set, with blue roofs for urban and modern
+
+1.3 - 05/10/2020
+------------------------------------------------------------------------
+Fix: Urban unelectrified depots not selling trains
+
+1.2 - 03/10/2020
+------------------------------------------------------------------------
+Added: More narrow gauge railway options
+Added: Option to disable more narrow gauge railway options
+Added: Dual gauge tracks
+Added: Option to disable dual gauge tracks
+Added: Urban tracks
+Added: Option to disable urban tracks
+Added: Custom Tunnel Portals
+Added: Option to make all track available from the start.
+Added: Option to reduce speed limits to realistic speeds.
+Fixed: Minor clipping on metro railtype
+Fixed: Japanese narrow gauge trains can now run on narrow gauge tracks (wrong gauge but w/e)
+
+1.1 - 30/08/2019
+------------------------------------------------------------------------
+Changed: Increased maximum speed of narrow gauge tracks to 80km/h. 
+Changed: Removed maximum speed of modern tracks. 
+
+1.0 - 08/08/2019
+------------------------------------------------------------------------
+Added: Custom signals and semaphores
+Added: Underground metro tracks
+Feature: Tracks now have different colours on the map
+Feature: You can set which metro tracks are available
+Changed: GUI now shows correct sprite for depot
+Changed: Metro tracks now only allow metro trains
+
+0.1 - 01/08/2019
+------------------------------------------------------------------------
+Initial release
+
+Features:
+- Depots
+- Level Crossings
+- Catenary
+- Narrow Gauge
+- 3rd Rail

@@ -1,0 +1,47 @@
+//Standard Gauge Branch
+spriteset (NUAd_gui, "grf/NUAd_GUI.png") {
+	tmpl_gui()
+}
+
+if (PARAM_NARROW == 0 && PARAM_URBAN) {
+item(FEAT_RAILTYPES, NUAd_ID, 21) {
+     property {
+         label:                      "NUAd";
+         name:                       string(STR_NUAd);
+         menu_text:                  string(STR_NUAd);
+         build_window_caption:       string(STR_NUAd_BUILD_CAPTION);
+         autoreplace_text:           string(STR_NUAd_AUTOREPLACE);
+         new_engine_text:            string(STR_NUAd_NEW_ENGINE);
+		 toolbar_caption:			 string(STR_NUAd_TB_CAPTION);
+         compatible_railtype_list:   NRW_ELEC;
+         powered_railtype_list:      NRW_ELEC;
+		 alternative_railtype_list:  NRW_ELEC;       
+         speed_limit:                (PARAM_SPEED == 0) ? 121 : 70 km/h;       
+		 introduction_date:			 date((PARAM_INTRO == 1) ? 0 : 1960,1,1);
+		 map_colour:				 0x44;
+         station_graphics:           RAILTYPE_STATION_NORMAL; 
+         acceleration_model:         ACC_MODEL_RAIL;                   
+         construction_cost:          COSTPARAM(6,PARAM_CONST);             
+		 maintenance_cost:		     COSTPARAM(5,PARAM_MAINT);	
+		 railtype_flags: bitmask(RAILTYPE_FLAG_CATENARY);	
+		 sort_order:				 0x0F;	 		   
+		 introduces_railtype_list:	 ["dUAd"];
+         requires_railtype_list:     ["NABE"];
+
+     }
+     graphics {
+         track_overlay:		switch_NUAN_over_SNOW;				// defines the sprites drawn as overlay for junctions and highlight
+         underlay:			switch_NUAN_under_SNOW;				// defines the usual tracks and the underlay for junctions
+         bridge_surfaces:	NBAN_bridge;				// defines the overlay drawn over bridges
+		 tunnels:			switch_NUAN_tunnel;			// defines the tracks drawn on a funnel tile
+         depots:            switch_depot_SUAN;    		// defines the depot sprites
+		 gui:				NUAd_gui;					// defines the gui sprites
+		 tunnel_overlay:	switch_urban_tunnel;			// Custom Tunnel portals since v2
+		 level_crossings:	sw_NBAN_crossing;
+		 signals:			sw_new_signals;
+         fences:     	    NO_fences;         // Custom Fences since v2
+		 catenary_wire: 	NBAd_wires;
+		 catenary_pylons: 	switch_pylon_SBAD;
+     }
+ }
+ }

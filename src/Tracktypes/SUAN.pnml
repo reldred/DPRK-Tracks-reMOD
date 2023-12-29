@@ -1,0 +1,86 @@
+//Standard Gauge Branch
+spriteset (SUAN_underlay, "grf/SUAN.png") {
+	tmpl_underlay_track_types_U()
+}
+spriteset (SUAN_overlay, "grf/SBAN.png") {
+	tmpl_overlay_track_types()
+}
+switch(FEAT_RAILTYPES, SELF, switch_SUAN_under_SNOW,terrain_type) {
+	TILETYPE_SNOW: SBAN_snow_underlay;
+	SUAN_underlay;
+}
+switch(FEAT_RAILTYPES, SELF, switch_SUAN_over_SNOW,terrain_type) {
+	TILETYPE_SNOW: SBAN_snow_overlay;
+	SUAN_overlay;
+}
+spriteset (SUAN_depot_nocc, "grf/SUAN_Depot_NoCC.png") {
+	tmpl_depot(8)
+}
+switch(FEAT_RAILTYPES, SELF, switch_depot_SUAN_CC, PARAM_CC) {
+	1: SBAN_depot;
+	SUAN_depot_nocc;
+}
+switch(FEAT_RAILTYPES, SELF, switch_depot_SUAN_SNOW, terrain_type) {
+	TILETYPE_SNOW: SAAN_depot_snow;
+	switch_depot_SUAN_CC;
+}
+switch(FEAT_RAILTYPES, SELF, switch_depot_SUAN, PARAM_DEPOT) {
+	1: CB_FAILED;
+	switch_depot_SUAN_SNOW;
+}
+//legacy code. Lmao no wtf past me
+switch(FEAT_RAILTYPES, SELF, switch_urban_tunnel, PARAM_UTUNNEL) {
+	1: switch_tunnel_SSAN;
+	SAAN_tunnel;
+}
+spriteset (ss_SUAN_tunneltracks, "grf/SSA3_TUNNEL.png") {
+	tmpl_tunnel_overlaytracks(80)
+}
+spriteset (ss_SUSN_tunneltracks, "grf/SSS3_TUNNEL.png") {
+	tmpl_tunnel_overlaytracks(80)
+}
+switch(FEAT_RAILTYPES, SELF, SUAN_tunneltracks,terrain_type) {
+	TILETYPE_SNOW: ss_SUSN_tunneltracks;
+	ss_SUAN_tunneltracks;
+}
+switch(FEAT_RAILTYPES, SELF, switch_SUAN_tunnel, PARAM_UTUNNEL) {
+	1: SUAN_tunneltracks;
+	SBAN_tunneltracks;
+}
+
+if(PARAM_URBAN){
+item(FEAT_RAILTYPES, SUAN_ID, 5) {
+     property {
+         label:                      "SUAN";
+         name:                       string(STR_SUAN);
+         menu_text:                  string(STR_SUAN);
+         build_window_caption:       string(STR_SUAN_BUILD_CAPTION);
+         autoreplace_text:           string(STR_SUAN_AUTOREPLACE);
+         new_engine_text:            string(STR_SUAN_NEW_ENGINE);
+		 toolbar_caption:			 string(STR_SUAN_TB_CAPTION);
+         compatible_railtype_list:   STD_ALL;
+         powered_railtype_list:      STD_ALL;
+		 alternative_railtype_list:  STD_UNELEC;       
+         speed_limit:                (PARAM_SPEED == 0) ? 121 : 70 km/h;       
+		 introduction_date:			 date((PARAM_INTRO == 1) ? 0 : 1960,1,1);
+		 map_colour:				 0x0B;
+         station_graphics:           RAILTYPE_STATION_NORMAL; 
+         acceleration_model:         ACC_MODEL_RAIL;                   
+         construction_cost:          COSTPARAM(8,PARAM_CONST);             
+		 maintenance_cost:		     COSTPARAM(8,PARAM_MAINT);		
+		 sort_order:				 0x03;	   
+     }
+     graphics {
+         track_overlay:		switch_SUAN_over_SNOW;				// defines the sprites drawn as overlay for junctions and highlight
+         underlay:			switch_SUAN_under_SNOW;				// defines the usual tracks and the underlay for junctions
+         bridge_surfaces:	SBAN_bridge;				// defines the overlay drawn over bridges
+		 tunnels:			switch_SUAN_tunnel;			// defines the tracks drawn on a funnel tile
+         depots:            switch_depot_SUAN;    	// defines the depot sprites
+		 gui:				NUAN_gui;					// defines the gui sprites
+		 tunnel_overlay:	switch_urban_tunnel;			// Custom Tunnel portals since v2
+		 level_crossings:	sw_SBAN_crossing;
+		 signals:			sw_new_signals;
+         fences:         	NO_fences;         // Custom Fences since v2
+     }
+ }
+ }

@@ -1,0 +1,53 @@
+//North Korean Track Set
+//Defines the GRF
+#include "src/header.pnml"
+
+//Defines how the sprites are tracked, courtesy of the swedish rail set.
+#include "src/template.pnml"
+
+#include "src/tt-table.pnml"
+
+spriteset (SPRITESET_NO_fences, "grf/Fences.png") {	tmpl_no_fences()}switch(FEAT_RAILTYPES, SELF, NO_fences, PARAM_FENCE) {	0: SPRITESET_NO_fences;	CB_FAILED;}
+
+#include "src/signals.pnml"
+//#include "src/ogfx.pnml"
+
+//Tracktypes
+#include "src/Tracktypes/SAAN.pnml"
+#include "src/Tracktypes/SBAN.pnml"
+#include "src/Tracktypes/SAAD.pnml"
+#include "src/Tracktypes/SBAD.pnml"
+#include "src/Tracktypes/SCAD.pnml"
+
+#include "src/Tracktypes/NAAN.pnml"
+#include "src/Tracktypes/NAAd.pnml"
+
+#include "src/Tracktypes/SAA3.pnml"
+#include "src/Tracktypes/SSA3.pnml"
+
+#include "src/Tracktypes/NBAN.pnml"
+#include "src/Tracktypes/NBAd.pnml"
+
+#include "src/Tracktypes/NCAd.pnml"
+
+#include "src/Tracktypes/dAAN.pnml"
+#include "src/Tracktypes/dAAd.pnml"
+#include "src/Tracktypes/dBAN.pnml"
+#include "src/Tracktypes/dBAd.pnml"
+#include "src/Tracktypes/dCAd.pnml"
+
+
+#include "src/Tracktypes/SUAN.pnml"
+#include "src/Tracktypes/SUAD.pnml"
+#include "src/Tracktypes/NUAN.pnml"
+#include "src/Tracktypes/NUAd.pnml"
+#include "src/Tracktypes/dUAN.pnml"
+#include "src/Tracktypes/dUAd.pnml"
+
+#include "src/Tracktypes/SUA3.pnml"
+
+#include "src/Tracktypes/SCAN.pnml"
+#include "src/Tracktypes/NCAN.pnml"
+#include "src/Tracktypes/dCAN.pnml"
+
+//cd /mnt/c/Temp/MTS2

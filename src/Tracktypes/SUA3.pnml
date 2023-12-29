@@ -1,0 +1,54 @@
+//Standard Gauge Branch
+spriteset (SUA3_underlay, "grf/SUA3.png") {
+	tmpl_underlay_track_types()
+}
+spriteset (SUA3_overlay, "grf/SAA3.png") {
+	tmpl_overlay_track_types()
+}
+switch(FEAT_RAILTYPES, SELF, switch_SUA3_under_SNOW,terrain_type) {
+	TILETYPE_SNOW: SAA3_snow_underlay;
+	SUA3_underlay;
+}
+switch(FEAT_RAILTYPES, SELF, switch_SUA3_over_SNOW,terrain_type) {
+	TILETYPE_SNOW: SAA3_snow_overlay;
+	SUA3_overlay;
+}
+spriteset (SUA3_bridge, "grf/SAA3.png") {
+	tmpl_bridges_overlay()
+}
+if (((PARAM_METRO == 2 || PARAM_METRO == 1) && PARAM_URBAN) || PARAM_METRO == 4) {
+item(FEAT_RAILTYPES, SUA3_ID, 13) {
+     property {
+         label:                      "SUA3";//First of its kind gotta replace
+         name:                       string(STR_SUA3);
+         menu_text:                  string(STR_SUA3);
+         build_window_caption:       string(STR_SUA3_BUILD_CAPTION);
+         autoreplace_text:           string(STR_SUA3_AUTOREPLACE);
+         new_engine_text:            string(STR_SUA3_NEW_ENGINE);
+		 toolbar_caption:			 string(STR_SUA3_TB_CAPTION);
+         compatible_railtype_list:   STD_3RD;
+         powered_railtype_list:      STD_3RD;
+		 alternative_railtype_list:  STD_3RD;       
+         speed_limit:                91 km/h;         
+		 introduction_date:			 date((PARAM_INTRO == 1) ? 0 : 1965,1,1);
+		 map_colour:				 0xC3;
+         station_graphics:           RAILTYPE_STATION_NORMAL; 
+         acceleration_model:         ACC_MODEL_RAIL;                   
+         construction_cost:          COSTPARAM(12,PARAM_CONST);             
+		 maintenance_cost:		     COSTPARAM(10,PARAM_MAINT);	
+		 railtype_flags: 			 bitmask(RAILTYPE_FLAG_NO_LEVEL_CROSSING);	
+		 sort_order:				 0x19;
+     }
+     graphics {
+         track_overlay:		switch_SUA3_over_SNOW;				// defines the sprites drawn as overlay for junctions and highlight
+         underlay:			switch_SUA3_under_SNOW;				// defines the usual tracks and the underlay for junctions
+         bridge_surfaces:	SUA3_bridge;				// defines the overlay drawn over bridges
+		 tunnels:			SSA3_tunneltracks;			// defines the tracks drawn on a funnel tile
+         depots:            switch_depot_SUAN;    	// defines the depot sprites
+		 gui:				SAA3_gui;					// defines the gui sprites
+		 signals:			sw_new_signals;
+		 tunnel_overlay:	switch_urban_tunnel;			// Custom Tunnel portals since v2
+         fences:         	NO_fences;         // Custom Fences since v2
+     }
+ }
+}

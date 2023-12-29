@@ -1,0 +1,182 @@
+#define COSTPARAM(basecost,param) (param == 0) ? basecost/4 : (param == 1) ? basecost/2 : (param == 3) ? basecost*2 : (param == 4) ? basecost*4 : basecost
+
+grf {
+	grfid:	"EN\30\01";
+	name:	string(STR_GRF_NAME);
+	desc:	string(STR_GRF_DESC);
+	version:	13;
+	min_compatible_version: 1;
+	param {
+		PARAM_CC {
+			type:	bool;
+			name:	string(STR_PARAM_CC);
+			desc:	string(STR_PARAM_CC_DESC);
+			def_value: 0;
+		}
+	}
+	param {
+		PARAM_CONST {
+			type:    int;
+			name:    string(STR_MSC);
+			desc:    string(STR_CON_DESC);
+			min_value: 0;
+			max_value: 4;
+			def_value: 2;
+			names: {
+				0: string(STR_MC_0);
+				1: string(STR_MC_1);
+				2: string(STR_MC_2);
+				3: string(STR_MC_3);
+				4: string(STR_MC_4);
+			};
+		}
+	}
+	param {
+		PARAM_MAINT {
+			type:    int;
+			name:    string(STR_MSM);
+			desc:    string(STR_MAINT_DESC);
+			min_value: 0;
+			max_value: 4;
+			def_value: 2;
+			names: {
+				0: string(STR_MC_0);
+				1: string(STR_MC_1);
+				2: string(STR_MC_2);
+				3: string(STR_MC_3);
+				4: string(STR_MC_4);
+			};
+		}
+	}
+	param {
+		PARAM_SIGNAL {
+			type:	int;
+			name:	string(STR_PARAM_SIGNAL);
+			desc:	string(STR_PARAM_SIGNAL_DESC);
+			min_value: 0;
+			max_value: 2;
+			def_value: 1;
+			names: {
+				0: string(STR_SIGNAL_0);
+				1: string(STR_SIGNAL_1);
+				2: string(STR_SIGNAL_2);
+			};
+		}
+	}
+	param {
+		PARAM_METRO {
+			type:    int;
+			name:    string(STR_PARAM_METRO);
+			desc:    string(STR_PARAM_METRO_DESC);
+			min_value: 0;
+			max_value: 4;
+			def_value: 0;
+			names: {
+				0: string(STR_PARAM_METRO1);
+				1: string(STR_PARAM_METRO2);
+				2: string(STR_PARAM_METRO3);
+				3: string(STR_PARAM_METRO4);
+				4: string(STR_PARAM_METRO5);
+			};
+		}
+	}
+	param {
+		PARAM_NARROW {
+			type:	int;
+			name:	string(STR_PARAM_NARROW);
+			desc:	string(STR_PARAM_NARROW_DESC);
+			min_value: 0;
+			max_value: 2;
+			def_value: 0;
+			names: {
+				0: string(STR_PARAM_NARROW1);
+				1: string(STR_PARAM_NARROW2);
+				2: string(STR_PARAM_NARROW3);
+			};
+		}
+	}
+	param {
+		PARAM_DUAL {
+			type:	bool;
+			name:	string(STR_PARAM_DUAL);
+			desc:	string(STR_PARAM_DUAL_DESC);
+			def_value: 1;
+		}
+	}
+	param {
+		PARAM_URBAN {
+			type:	bool;
+			name:	string(STR_PARAM_URBAN);
+			desc:	string(STR_PARAM_URBAN_DESC);
+			def_value: 1;
+		}
+	}
+	param {
+		PARAM_INTRO {
+			type:	bool;
+			name:	string(STR_PARAM_INTRO);
+			desc:	string(STR_PARAM_INTRO_DESC);
+			def_value: 0;
+		}
+	}
+	param {
+		PARAM_SPEED {
+			type:	int;
+			name:	string(STR_PARAM_SPEED);
+			desc:	string(STR_PARAM_SPEED_DESC);
+			min_value: 0;
+			max_value: 1;
+			def_value: 0;
+			names: {
+				0: string(STR_PARAM_SPEED1);
+				1: string(STR_PARAM_SPEED2);
+			};
+		}
+	}
+	param {
+		PARAM_UTUNNEL {
+			type:    int;
+			name:    string(STR_UTUNNEL);
+			desc:    string(STR_UTUNNEL_DESC);
+			min_value: 0;
+			max_value: 1;
+			def_value: 1;
+			names: {
+				0: string(STR_UTUNNEL_1);
+				1: string(STR_UTUNNEL_2);
+			};
+		}
+	}
+	param {
+		PARAM_DEPOT {
+			type:	bool;
+			name:	string(STR_PARAM_DEPOT);
+			desc:	string(STR_PARAM_DEPOT_DESC);
+			def_value: 0;
+		}
+	}
+	param {
+		PARAM_BRIDGE {
+			type:	int;
+			name:	string(STR_PARAM_BRIDGE);
+			desc:	string(STR_PARAM_BRIDGE_DESC);
+			min_value: 0;
+			max_value: 2;
+			def_value: 0;
+			names: {
+				0: string(STR_BRIDGE_1);
+				1: string(STR_BRIDGE_2);
+				2: string(STR_BRIDGE_3);
+			};
+		}
+	}
+	param {
+		PARAM_FENCE {
+			type:	bool;
+			name:	string(STR_PARAM_FENCE);
+			desc:	string(STR_PARAM_FENCE_DESC);
+			def_value: 0;
+		}
+	}
+}
+#define BRIDGEBALLAST 2*grf_future_status("\47\47\47\35") + 2*grf_current_status("\47\47\47\35") + PARAM_BRIDGE

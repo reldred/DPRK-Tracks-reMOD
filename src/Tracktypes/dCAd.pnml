@@ -1,0 +1,115 @@
+//Standard Gauge Branch
+spriteset (dCAN_underlay, "grf/dCAN.png") {
+	tmpl_underlay_track_types()
+}
+spriteset (dCAN_overlay, "grf/dCAN.png") {
+	tmpl_overlay_track_types()
+}
+spriteset (dCAN_snow_underlay, "grf/dCSN.png") {
+	tmpl_underlay_track_types()
+}
+spriteset (dCAN_snow_overlay, "grf/dCSN.png") {
+	tmpl_overlay_track_types()
+}
+switch(FEAT_RAILTYPES, SELF, switch_dCAN_under_SNOW,terrain_type) {
+	TILETYPE_SNOW: dCAN_snow_underlay;
+	dCAN_underlay;
+}
+switch(FEAT_RAILTYPES, SELF, switch_dCAN_over_SNOW,terrain_type) {
+	TILETYPE_SNOW: dCAN_snow_overlay;
+	dCAN_overlay;
+}
+spriteset (dCAd_bridge_ballast, "grf/dCAN.png") {
+	tmpl_bridges_overlay()
+}
+spriteset (dCAd_bridge_no_ballast, "grf/dCAN_bridge.png") {
+	tmpl_bridges_overlay()
+}
+switch(FEAT_RAILTYPES, SELF, dCAd_bridge, BRIDGEBALLAST) {
+	2: dCAd_bridge_no_ballast;
+	dCAd_bridge_ballast;
+}
+spriteset (ss_dCAN_tunneltracks, "grf/SAAN_TUNNEL.png") {
+	tmpl_tunnel_overlaytracks(360)
+}
+spriteset (ss_dCSN_tunneltracks, "grf/SASN_TUNNEL.png") {
+	tmpl_tunnel_overlaytracks(360)
+}
+switch(FEAT_RAILTYPES, SELF, dCAd_tunneltracks,terrain_type) {
+	TILETYPE_SNOW: ss_dCSN_tunneltracks;
+	ss_dCAN_tunneltracks;
+}/*
+spriteset (NBAd_tunnel, "grf/LSM_Tunnel.png") {
+	tmpl_tunnel_overlaytracks(40)
+}*/
+/*
+spriteset (NBAd_depot, "grf/NBAd_Depot.png") {
+	tmpl_depot(8)
+}
+spriteset (NBAd_depot_nocc, "grf/NBAd_Depot_NOCC.png") {
+	tmpl_depot(8)
+}*/
+spriteset(dCAN_CROSS_O, "grf/dCAN_CROSS.png") {
+	tmpl_level_crossing_track_types_open(24)
+}
+spriteset(dCAN_CROSS_C, "grf/dCAN_CROSS.png") {
+	tmpl_level_crossing_track_types_closed(48)
+}
+switch(FEAT_RAILTYPES, SELF, sw_dCAN_sprite_crossing, level_crossing_status) {
+	LEVEL_CROSSING_CLOSED: dCAN_CROSS_C;
+	dCAN_CROSS_O;
+}
+spriteset(dCSN_CROSS_O, "grf/dCSN_CROSS.png") {
+	tmpl_level_crossing_track_types_open(24)
+}
+spriteset(dCSN_CROSS_C, "grf/dCSN_CROSS.png") {
+	tmpl_level_crossing_track_types_closed(48)
+}
+switch(FEAT_RAILTYPES, SELF, sw_dCSN_sprite_crossing, level_crossing_status) {
+	LEVEL_CROSSING_CLOSED: dCSN_CROSS_C;
+	dCSN_CROSS_O;
+}
+switch(FEAT_RAILTYPES, SELF, sw_dCAN_crossing, terrain_type) {
+	TILETYPE_SNOW: sw_dCSN_sprite_crossing;
+	sw_dCAN_sprite_crossing;
+}
+
+if (PARAM_DUAL == 1 && PARAM_NARROW == 0) {
+item(FEAT_RAILTYPES, dCAd_ID, 19) {
+     property {
+         label:                      "dCAd"; //first so replace
+         name:                       string(STR_dCAd);
+         menu_text:                  string(STR_dCAd);
+         build_window_caption:       string(STR_dCAd_BUILD_CAPTION);
+         autoreplace_text:           string(STR_dCAd_AUTOREPLACE);
+         new_engine_text:            string(STR_dCAd_NEW_ENGINE);
+		 toolbar_caption:			 string(STR_dCAd_TB_CAPTION);
+         compatible_railtype_list:   DUAL_ALL;
+         powered_railtype_list:      DUAL_ELEC;
+		 alternative_railtype_list:  DUAL_ELEC;       
+         speed_limit:                (PARAM_SPEED == 0) ? 0 : 101 km/h;       
+		 //introduction_date:			 date(1970,1,1);
+		 map_colour:				 0x42;
+         station_graphics:           RAILTYPE_STATION_NORMAL; 
+         acceleration_model:         ACC_MODEL_RAIL;                   
+         construction_cost:          COSTPARAM(19,PARAM_CONST);             
+		 maintenance_cost:		     COSTPARAM(19,PARAM_MAINT);	
+		 railtype_flags: bitmask(RAILTYPE_FLAG_CATENARY);		
+		 sort_order:				 0x16; 		   
+     }
+     graphics {
+         track_overlay:		switch_dCAN_over_SNOW;				// defines the sprites drawn as overlay for junctions and highlight
+         underlay:			switch_dCAN_under_SNOW;				// defines the usual tracks and the underlay for junctions
+         bridge_surfaces:	dCAd_bridge;				// defines the overlay drawn over bridges
+		 tunnels:			dCAd_tunneltracks;			// defines the tracks drawn on a funnel tile
+         depots:            switch_depot_SCAN;    		// defines the depot sprites
+		 gui:				NCAd_gui;					// defines the gui sprites
+		 tunnel_overlay:	SAAN_tunnel;			// Custom Tunnel portals since v2
+		 level_crossings:	sw_dCAN_crossing;
+		 signals:			sw_new_signals;
+         fences:     	    NO_fences;         // Custom Fences since v2
+		 catenary_wire: 	NBAd_wires;
+		 catenary_pylons: 	switch_pylon_SBAD;
+     }
+ }
+ }

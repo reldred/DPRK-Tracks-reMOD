@@ -1,0 +1,280 @@
+##grflangid 0x01
+# 0x01 -> English
+
+# General GRF strings
+STR_GRF_NAME	:North Korean Track Set 1.9 reMOD
+STR_GRF_DESC	:A trackset for use with the North Korean Trainset {}{BLACK} {}{COPYRIGHT}2019-2021 Erato Nysiad. Additional modifications 2023 by reldred.{}License:CC BY 4.0{}
+
+# Track strings
+#0
+STR_SAAN 				:Standard Gauge Branch {LTBROWN}(Unelectrified){WHITE}
+STR_SAAN_BUILD_CAPTION	:New Standard Gauge Vehicles
+STR_SAAN_AUTOREPLACE 	:Standard Gauge Vehicles
+STR_SAAN_NEW_ENGINE 	:Standard gauge branch
+STR_SAAN_TB_CAPTION 	:Standard Gauge Branch
+
+#1
+STR_SBAN 				:Standard Gauge Trunk {LTBROWN}(Unelectrified){WHITE}
+STR_SBAN_BUILD_CAPTION	:New Standard Gauge Vehicles
+STR_SBAN_AUTOREPLACE 	:Standard Gauge Vehicles
+STR_SBAN_NEW_ENGINE 	:Standard gauge trunk
+STR_SBAN_TB_CAPTION 	:Standard Gauge Trunk
+
+#2
+STR_SCAN 				:Standard Gauge Modern {LTBROWN}(Unelectrified){WHITE}
+STR_SCAN_BUILD_CAPTION	:New Standard Gauge Vehicles
+STR_SCAN_AUTOREPLACE 	:Standard Gauge Vehicles
+STR_SCAN_NEW_ENGINE 	:Standard gauge modern
+STR_SCAN_TB_CAPTION 	:Standard Gauge Modern
+
+#3
+STR_SUAN 				:Standard Gauge Urban {LTBROWN}(Unelectrified){WHITE}
+STR_SUAN_BUILD_CAPTION	:New Standard Gauge Vehicles
+STR_SUAN_AUTOREPLACE 	:Standard Gauge Vehicles
+STR_SUAN_NEW_ENGINE 	:Standard gauge urban
+STR_SUAN_TB_CAPTION 	:Standard Gauge Urban
+
+#4
+STR_SAAD 				:Standard Gauge Branch {LTBLUE}(Electrified){WHITE}
+STR_SAAD_BUILD_CAPTION	:New Electric Standard Gauge Vehicles
+STR_SAAD_AUTOREPLACE 	:Electric Standard Gauge Vehicles
+STR_SAAD_NEW_ENGINE 	:Standard gauge branch (electrified)
+STR_SAAD_TB_CAPTION 	:Standard Gauge Branch (Electrified)
+
+#5
+STR_SBAD 				:Standard Gauge Trunk {LTBLUE}(Electrified){WHITE}
+STR_SBAD_BUILD_CAPTION	:New Electric Standard Gauge Vehicles
+STR_SBAD_AUTOREPLACE 	:Electric Standard Gauge Vehicles
+STR_SBAD_NEW_ENGINE 	:Standard gauge trunk (electrified)
+STR_SBAD_TB_CAPTION 	:Standard Gauge Trunk (Electrified)
+
+#6
+STR_SCAD 				:Standard Gauge Modern {LTBLUE}(Electrified){WHITE}
+STR_SCAD_BUILD_CAPTION	:New Electric Standard Gauge Vehicles
+STR_SCAD_AUTOREPLACE 	:Electric Standard Gauge Vehicles
+STR_SCAD_NEW_ENGINE 	:Standard gauge modern (electrified)
+STR_SCAD_TB_CAPTION 	:Standard Gauge Modern (Electrified)
+
+#7
+STR_SUAD 				:Standard Gauge Urban {LTBLUE}(Electrified){WHITE}
+STR_SUAD_BUILD_CAPTION	:New Electric Standard Gauge Vehicles
+STR_SUAD_AUTOREPLACE 	:Electric Standard Gauge Vehicles
+STR_SUAD_NEW_ENGINE 	:Standard gauge urban (electrified)
+STR_SUAD_TB_CAPTION 	:Standard Gauge Urban (Electrified)
+
+#8
+STR_NAAN 				:Narrow Gauge Branch {LTBROWN}(Unelectrified){WHITE}
+STR_NAAN_BUILD_CAPTION	:New Narrow Gauge Vehicles
+STR_NAAN_AUTOREPLACE 	:Narrow Gauge Vehicles
+STR_NAAN_NEW_ENGINE 	:Narrow gauge branch
+STR_NAAN_TB_CAPTION 	:Narrow Gauge Branch
+
+#9
+STR_NBAN 				:Narrow Gauge Trunk {LTBROWN}(Unelectrified){WHITE}
+STR_NBAN_BUILD_CAPTION	:New Narrow Gauge Vehicles
+STR_NBAN_AUTOREPLACE 	:Narrow Gauge Vehicles
+STR_NBAN_NEW_ENGINE 	:Narrow gauge trunk
+STR_NBAN_TB_CAPTION 	:Narrow Gauge Trunk
+
+#A
+STR_NCAN 				:Narrow Gauge Modern {LTBROWN}(Unelectrified){WHITE}
+STR_NCAN_BUILD_CAPTION	:New Narrow Gauge Vehicles
+STR_NCAN_AUTOREPLACE 	:Narrow Gauge Vehicles
+STR_NCAN_NEW_ENGINE 	:Narrow gauge modern
+STR_NCAN_TB_CAPTION 	:Narrow Gauge Modern
+
+#B
+STR_NUAN 				:Narrow Gauge Urban {LTBROWN}(Unelectrified){WHITE}
+STR_NUAN_BUILD_CAPTION	:New Narrow Gauge Vehicles
+STR_NUAN_AUTOREPLACE 	:Narrow Gauge Vehicles
+STR_NUAN_NEW_ENGINE 	:Narrow gauge urban
+STR_NUAN_TB_CAPTION 	:Narrow Gauge Urban
+
+#C
+STR_NAAd 				:Narrow Gauge Branch {LTBLUE}(Electrified){WHITE}
+STR_NAAd_BUILD_CAPTION	:New Electric Narrow Gauge Vehicles
+STR_NAAd_AUTOREPLACE 	:Electric Narrow Gauge Vehicles
+STR_NAAd_NEW_ENGINE 	:Narrow gauge branch (electrified)
+STR_NAAd_TB_CAPTION 	:Narrow Gauge Branch (Electrified)
+
+#D
+STR_NBAd 				:Narrow Gauge Trunk {LTBLUE}(Electrified){WHITE}
+STR_NBAd_BUILD_CAPTION	:New Electric Narrow Gauge Vehicles
+STR_NBAd_AUTOREPLACE 	:Electric Narrow Gauge Vehicles
+STR_NBAd_NEW_ENGINE 	:Narrow gauge trunk (electrified)
+STR_NBAd_TB_CAPTION 	:Narrow Gauge Trunk (Electrified)
+
+#E
+STR_NCAd 				:Narrow Gauge Modern {LTBLUE}(Electrified){WHITE}
+STR_NCAd_BUILD_CAPTION	:New Electric Narrow Gauge Vehicles
+STR_NCAd_AUTOREPLACE 	:Electric Narrow Gauge Vehicles
+STR_NCAd_NEW_ENGINE 	:Narrow gauge modern (electrified)
+STR_NCAd_TB_CAPTION 	:Narrow Gauge Modern (Electrified)
+
+#F
+STR_NUAd 				:Narrow Gauge Urban {LTBLUE}(Electrified){WHITE}
+STR_NUAd_BUILD_CAPTION	:New Electric Narrow Gauge Vehicles
+STR_NUAd_AUTOREPLACE 	:Electric Narrow Gauge Vehicles
+STR_NUAd_NEW_ENGINE 	:Narrow gauge urban (electrified)
+STR_NUAd_TB_CAPTION 	:Narrow Gauge Urban (Electrified)
+
+#10
+STR_dAAN 				:Dual Gauge Branch {LTBROWN}(Unelectrified){WHITE}
+STR_dAAN_BUILD_CAPTION	:New Dual Gauge Vehicles
+STR_dAAN_AUTOREPLACE 	:Dual Gauge Vehicles
+STR_dAAN_NEW_ENGINE 	:Dual gauge branch
+STR_dAAN_TB_CAPTION 	:Dual Gauge Branch
+
+#11
+STR_dBAN 				:Dual Gauge Trunk {LTBROWN}(Unelectrified){WHITE}
+STR_dBAN_BUILD_CAPTION	:New Dual Gauge Vehicles
+STR_dBAN_AUTOREPLACE 	:Dual Gauge Vehicles
+STR_dBAN_NEW_ENGINE 	:Dual gauge trunk
+STR_dBAN_TB_CAPTION 	:Dual Gauge Trunk
+
+#12
+STR_dCAN 				:Dual Gauge Modern {LTBROWN}(Unelectrified){WHITE}
+STR_dCAN_BUILD_CAPTION	:New Dual Gauge Vehicles
+STR_dCAN_AUTOREPLACE 	:Dual Gauge Vehicles
+STR_dCAN_NEW_ENGINE 	:Dual gauge modern
+STR_dCAN_TB_CAPTION 	:Dual Gauge Modern
+
+#13
+STR_dUAN 				:Dual Gauge Urban {LTBROWN}(Unelectrified){WHITE}
+STR_dUAN_BUILD_CAPTION	:New Dual Gauge Vehicles
+STR_dUAN_AUTOREPLACE 	:Dual Gauge Vehicles
+STR_dUAN_NEW_ENGINE 	:Dual gauge urban
+STR_dUAN_TB_CAPTION 	:Dual Gauge Urban
+
+#14
+STR_dAAd 				:Dual Gauge Branch {LTBLUE}(Electrified){WHITE}
+STR_dAAd_BUILD_CAPTION	:New Electric Dual Gauge Vehicles
+STR_dAAd_AUTOREPLACE 	:Electric Dual Gauge Vehicles
+STR_dAAd_NEW_ENGINE 	:Dual gauge branch (electrified)
+STR_dAAd_TB_CAPTION 	:Dual Gauge Branch (Electrified)
+
+#15
+STR_dBAd 				:Dual Gauge Trunk {LTBLUE}(Electrified){WHITE}
+STR_dBAd_BUILD_CAPTION	:New Electric Dual Gauge Vehicles
+STR_dBAd_AUTOREPLACE 	:Electric Dual Gauge Vehicles
+STR_dBAd_NEW_ENGINE 	:Dual gauge trunk (electrified)
+STR_dBAd_TB_CAPTION 	:Dual Gauge Trunk (Electrified)
+
+#16
+STR_dCAd 				:Dual Gauge Modern {LTBLUE}(Electrified){WHITE}
+STR_dCAd_BUILD_CAPTION	:New Electric Dual Gauge Vehicles
+STR_dCAd_AUTOREPLACE 	:Electric Dual Gauge Vehicles
+STR_dCAd_NEW_ENGINE 	:Dual gauge modern (electrified)
+STR_dCAd_TB_CAPTION 	:Dual Gauge Modern (Electrified)
+
+#17
+STR_dUAd 				:Dual Gauge Urban {LTBLUE}(Electrified){WHITE}
+STR_dUAd_BUILD_CAPTION	:New Electric Dual Gauge Vehicles
+STR_dUAd_AUTOREPLACE 	:Electric Dual Gauge Vehicles
+STR_dUAd_NEW_ENGINE 	:Dual gauge urban (electrified)
+STR_dUAd_TB_CAPTION 	:Dual Gauge Urban (Electrified)
+
+#18
+STR_SAA3 				:Standard Gauge Metro {GREEN}(3rd Rail Electrified){WHITE}
+STR_SAA3_BUILD_CAPTION	:New 3rd Rail Standard Gauge Vehicles
+STR_SAA3_AUTOREPLACE 	:3rd Rail Standard Gauge Vehicles
+STR_SAA3_NEW_ENGINE 	:Standard gauge metro (3rd rail electrified)
+STR_SAA3_TB_CAPTION 	:Standard Gauge Metro (3rd Rail Electrified)
+
+#19
+STR_SUA3 				:Standard Gauge Urban Metro {GREEN}(3rd Rail Electrified){WHITE}
+STR_SUA3_BUILD_CAPTION	:New 3rd Rail Standard Gauge Vehicles
+STR_SUA3_AUTOREPLACE 	:3rd Rail Standard Gauge Vehicles
+STR_SUA3_NEW_ENGINE 	:Standard gauge urban metro (3rd rail electrified)
+STR_SUA3_TB_CAPTION 	:Standard Gauge Urban Metro (3rd Rail Electrified)
+
+#1A
+STR_SSA3 				:Underground Standard Gauge Metro {GREEN}(3rd Rail Electrified){WHITE}
+STR_SSA3_BUILD_CAPTION	:New 3rd Rail Standard Gauge Vehicles
+STR_SSA3_AUTOREPLACE 	:3rd Rail Standard Gauge Vehicles
+STR_SSA3_NEW_ENGINE 	:Underground Standard gauge metro (3rd rail electrified)
+STR_SSA3_TB_CAPTION 	:Underground Standard Gauge Metro (3rd Rail Electrified)
+
+# Parameter Strings
+STR_MC_0				:/4
+STR_MC_1				:/2
+STR_MC_2				:x1 (Default)
+STR_MC_3				:x2
+STR_MC_4				:x4
+
+STR_PARAM_CC			:Company Colours for Depots
+STR_PARAM_CC_DESC		:When disabled, the depots will be coloured as they would be in real life.
+
+STR_MSC					:Construction cost
+STR_MSM					:Maintenance cost
+STR_CON_DESC			:
+STR_MAINT_DESC			:You must activate 'Advanced Settings -> Economy -> Infrastructure maintenance' for this setting to take effect
+
+STR_PARAM_SIGNAL		:Custom Rail Signals
+STR_PARAM_SIGNAL_DESC	:When enabled, the DPRK track set will provide custom rail signal graphics.
+STR_SIGNAL_0			:None
+STR_SIGNAL_1			:For all tracktypes
+STR_SIGNAL_2			:Only for DPRK tracktypes
+
+STR_PARAM_METRO			:Availability metro tracks
+STR_PARAM_METRO_DESC	:Allows the user to customise to what extent metro tracks are available. Choosing "Only Urban" overrides the disabling of urban tracks using other parameters.
+STR_PARAM_METRO1		:Only Underground
+STR_PARAM_METRO2		:Both
+STR_PARAM_METRO3		:Only Overground
+STR_PARAM_METRO4		:None
+STR_PARAM_METRO5		:Only Urban
+
+STR_PARAM_NARROW		:Availability narrow gauge tracks
+STR_PARAM_NARROW_DESC	:Allows the user to customise to what extent narrow gauge tracks are available.
+STR_PARAM_NARROW1		:All
+STR_PARAM_NARROW2		:Minimal
+STR_PARAM_NARROW3		:None
+
+STR_PARAM_DUAL			:Availability dual gauge tracks
+STR_PARAM_DUAL_DESC		:When enabled, dual gauge tracks will be available.
+
+STR_PARAM_URBAN			:Availability urban tracks
+STR_PARAM_URBAN_DESC	:Adds urban tracks. When narrow gauge is set to all, also adds urban narrow gauge. When enabled, it also adds urban variants for dual gauge and metro tracks.
+
+STR_FENCE				:Fences
+STR_FENCE_DESC			:Replaces or deactivates the fences for railtracks.
+STR_FENCE_1				:None
+STR_FENCE_2				:Only for urban maglevs
+STR_FENCE_3				:Only for high speed maglevs
+STR_FENCE_4				:All railtypes
+
+STR_UTUNNEL				:Urban tunnel portals
+STR_UTUNNEL_DESC		:Allows you to choose what tunnel portals you want for urban tracks
+STR_UTUNNEL_1			:Normal
+STR_UTUNNEL_2			:Urban, same as subway
+
+STR_PARAM_BRICK_TUNNEL		:Make high speed maglev tunnel full tile
+STR_PARAM_BRICK_TUNNEL_DESC	:When enabled, the high speed maglev tunnel will get a brick background. Use this when a grf deletes the tunnel ground sprites. Automatically activated when the Monorail Track Replacement is loaded.
+
+STR_PARAM_INTRO			:All tracktypes available from the beginning
+STR_PARAM_INTRO_DESC	:When disabled, tracktypes will be made available over time.
+
+STR_PARAM_DEPOT			:Allow other NewGRFs to provide depot sprites
+STR_PARAM_DEPOT_DESC	:When enabled, the DPRK trackset will not provide any depot sprites.
+
+STR_PARAM_SPEED			:Maximum speeds
+STR_PARAM_SPEED_DESC	:Realistic maximum speeds are based on actual track classifications, and significantly lower than gameplay optimised speeds.
+STR_PARAM_SPEED1		:Gameplay Optimised
+STR_PARAM_SPEED2		:Realistic
+STR_PARAM_SPEED3		:Enhanced Gameplay Optimised
+
+STR_PARAM_OGFX			:Fix tunnels for OpenGFX+ Landscape
+STR_PARAM_OGFX_DESC		:Tunnels in OpenGFX+ Landscape don't work well with DPRK tracks.
+STR_PARAM_OGFX1			:Detect OpenGFX+ Landscape
+STR_PARAM_OGFX2			:Force on
+STR_PARAM_OGFX3			:Force off
+
+STR_PARAM_BRIDGE		:Bridge track style
+STR_PARAM_BRIDGE_DESC	:Allows the user to set the bridge track sprites to either have, or not have ballast. When set to 'Automatic', ballastless tracks will be used if Auz Bridge Replacement is loaded.
+STR_BRIDGE_1			:Automatic
+STR_BRIDGE_2			:Ballasted
+STR_BRIDGE_3			:Ballastless
+
+STR_PARAM_FENCE			:Enable fences
+STR_PARAM_FENCE_DESC	:When disabled, no fences are displayed. When enabled, default fences are used
+# Misc Strings

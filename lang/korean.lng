@@ -1,0 +1,236 @@
+##grflangid 0x3A
+# 0x3A -> Korean
+
+# General GRF strings
+STR_GRF_NAME	:북한 선로 세트 1.9
+STR_GRF_DESC	:북한 열차 세트와 함께 사용하는 선로 세트입니다 {}{BLACK} {}{COPYRIGHT}2019-2021 Erato Nysiad. Additional modifications 2023 by reldred.{}라이선스:CC BY 4.0{}{}한국어 번역: TELK
+
+# Track strings
+STR_SAAN 				:표준궤 지선 {LTBROWN}(일반){WHITE}
+STR_SAAN_BUILD_CAPTION	:새 표준궤 차량
+STR_SAAN_AUTOREPLACE 	:표준궤 차량
+STR_SAAN_NEW_ENGINE 	:표준궤 지선
+STR_SAAN_TB_CAPTION 	:표준궤 지선
+
+STR_SBAN 				:표준궤 본선 {LTBROWN}(일반){WHITE}
+STR_SBAN_BUILD_CAPTION	:새 표준궤 차량
+STR_SBAN_AUTOREPLACE 	:표준궤 차량
+STR_SBAN_NEW_ENGINE 	:표준궤 본선
+STR_SBAN_TB_CAPTION 	:표준궤 본선
+
+STR_SAAD 				:표준궤 지선 {LTBLUE}(전기){WHITE}
+STR_SAAD_BUILD_CAPTION	:새 전기 표준궤 차량
+STR_SAAD_AUTOREPLACE 	:전기 표준궤 차량
+STR_SAAD_NEW_ENGINE 	:표준궤 지선 (전기)
+STR_SAAD_TB_CAPTION 	:표준궤 지선 (전기)
+
+STR_SBAD 				:표준궤 본선 {LTBLUE}(전기){WHITE}
+STR_SBAD_BUILD_CAPTION	:새 전기 표준궤 차량
+STR_SBAD_AUTOREPLACE 	:전기 표준궤 차량
+STR_SBAD_NEW_ENGINE 	:표준궤 본선 (전기)
+STR_SBAD_TB_CAPTION 	:표준궤 본선 (전기)
+
+STR_SCAD 				:신식 표준궤 {LTBLUE}(전기){WHITE}
+STR_SCAD_BUILD_CAPTION	:새 전기 표준궤 차량
+STR_SCAD_AUTOREPLACE 	:전기 표준궤 차량
+STR_SCAD_NEW_ENGINE 	:신식 표준궤 (전기)
+STR_SCAD_TB_CAPTION 	:신식 표준궤 (전기)
+
+STR_SUAD 				:도시 표준궤 {LTBLUE}(전기){WHITE}
+STR_SUAD_BUILD_CAPTION	:새 전기 표준궤 차량
+STR_SUAD_AUTOREPLACE 	:전기 표준궤 차량
+STR_SUAD_NEW_ENGINE 	:도시 표준궤 (전기)
+STR_SUAD_TB_CAPTION 	:도시 표준궤 (전기)
+
+STR_SUAN 				:도시 표준궤 {LTBROWN}(일반){WHITE}
+STR_SUAN_BUILD_CAPTION	:새 표준궤 차량
+STR_SUAN_AUTOREPLACE 	:표준궤 차량
+STR_SUAN_NEW_ENGINE 	:도시 표준궤
+STR_SUAN_TB_CAPTION 	:도시 표준궤
+
+STR_NAAN 				:협궤 지선 {LTBROWN}(일반){WHITE}
+STR_NAAN_BUILD_CAPTION	:새 협궤 차량
+STR_NAAN_AUTOREPLACE 	:협궤 차량
+STR_NAAN_NEW_ENGINE 	:협궤 지선
+STR_NAAN_TB_CAPTION 	:협궤 지선
+
+STR_NAAd 				:협궤 지선 {LTBLUE}(전기){WHITE}
+STR_NAAd_BUILD_CAPTION	:새 전기 협궤 차량
+STR_NAAd_AUTOREPLACE 	:전기 협궤 차량
+STR_NAAd_NEW_ENGINE 	:협궤 지선 (전기)
+STR_NAAd_TB_CAPTION 	:협궤 지선 (전기)
+
+STR_NBAN 				:협궤 본선 {LTBROWN}(일반){WHITE}
+STR_NBAN_BUILD_CAPTION	:새 협궤 차량
+STR_NBAN_AUTOREPLACE 	:협궤 차량
+STR_NBAN_NEW_ENGINE 	:협궤 본선
+STR_NBAN_TB_CAPTION 	:협궤 본선
+
+STR_NBAd 				:협궤 본선 {LTBLUE}(전기){WHITE}
+STR_NBAd_BUILD_CAPTION	:새 전기 협궤 차량
+STR_NBAd_AUTOREPLACE 	:전기 협궤 차량
+STR_NBAd_NEW_ENGINE 	:협궤 본선 (전기)
+STR_NBAd_TB_CAPTION 	:협궤 본선 (전기)
+
+STR_NUAN 				:도시 협궤 {LTBROWN}(일반){WHITE}
+STR_NUAN_BUILD_CAPTION	:새 협궤 차량
+STR_NUAN_AUTOREPLACE 	:협궤 차량
+STR_NUAN_NEW_ENGINE 	:도시 협궤
+STR_NUAN_TB_CAPTION 	:도시 협궤
+
+STR_NUAd 				:도시 협궤 {LTBLUE}(전기){WHITE}
+STR_NUAd_BUILD_CAPTION	:새 전기 협궤 차량
+STR_NUAd_AUTOREPLACE 	:전기 협궤 차량
+STR_NUAd_NEW_ENGINE 	:도시 협궤 (전기)
+STR_NUAd_TB_CAPTION 	:도시 협궤 (전기)
+
+STR_NCAd 				:신식 협궤 {LTBLUE}(전기){WHITE}
+STR_NCAd_BUILD_CAPTION	:새 전기 협궤 차량
+STR_NCAd_AUTOREPLACE 	:전기 협궤 차량
+STR_NCAd_NEW_ENGINE 	:신식 협궤 (전기)
+STR_NCAd_TB_CAPTION 	:신식 협궤 (전기)
+
+
+STR_SAA3 				:표준궤 전철 {GREEN}(제3궤조 전기){WHITE}
+STR_SAA3_BUILD_CAPTION	:새 제3궤조 표준궤 차량
+STR_SAA3_AUTOREPLACE 	:제3궤조 표준궤 차량
+STR_SAA3_NEW_ENGINE 	:표준궤 전철 (제3궤조 전기)
+STR_SAA3_TB_CAPTION 	:표준궤 전철 (제3궤조 전기)
+
+STR_SUA3 				:표준궤 도시 전철 {GREEN}(제3궤조 전기){WHITE}
+STR_SUA3_BUILD_CAPTION	:새 제3궤조 표준궤 차량
+STR_SUA3_AUTOREPLACE 	:제3궤조 표준궤 차량
+STR_SUA3_NEW_ENGINE 	:표준궤 도시 전철 (제3궤조 전기)
+STR_SUA3_TB_CAPTION 	:표준궤 도시 전철 (제3궤조 전기)
+
+STR_SSA3 				:지하 표준궤 전철 {GREEN}(제3궤조 전기){WHITE}
+STR_SSA3_BUILD_CAPTION	:새 제3궤조 표준궤 차량
+STR_SSA3_AUTOREPLACE 	:제3궤조 표준궤 차량
+STR_SSA3_NEW_ENGINE 	:지하 표준궤 전철 (제3궤조 전기)
+STR_SSA3_TB_CAPTION 	:지하 표준궤 전철 (제3궤조 전기)
+
+
+STR_dAAN 				:듀얼 게이지 지선 {LTBROWN}(일반){WHITE}
+STR_dAAN_BUILD_CAPTION	:새 듀얼 게이지 차량
+STR_dAAN_AUTOREPLACE 	:듀얼 게이지 차량
+STR_dAAN_NEW_ENGINE 	:듀얼 게이지 지선
+STR_dAAN_TB_CAPTION 	:듀얼 게이지 지선
+
+STR_dAAd 				:듀얼 게이지 지선 {LTBLUE}(전기){WHITE}
+STR_dAAd_BUILD_CAPTION	:새 전기 듀얼 게이지 차량
+STR_dAAd_AUTOREPLACE 	:전기 듀얼 게이지 차량
+STR_dAAd_NEW_ENGINE 	:듀얼 게이지 지선 (전기)
+STR_dAAd_TB_CAPTION 	:듀얼 게이지 지선 (전기)
+
+STR_dBAN 				:듀얼 게이지 본선 {LTBROWN}(일반){WHITE}
+STR_dBAN_BUILD_CAPTION	:새 듀얼 게이지 차량
+STR_dBAN_AUTOREPLACE 	:듀얼 게이지 차량
+STR_dBAN_NEW_ENGINE 	:듀얼 게이지 본선
+STR_dBAN_TB_CAPTION 	:듀얼 게이지 본선
+
+STR_dBAd 				:듀얼 게이지 본선 {LTBLUE}(전기){WHITE}
+STR_dBAd_BUILD_CAPTION	:새 전기 듀얼 게이지 차량
+STR_dBAd_AUTOREPLACE 	:전기 듀얼 게이지 차량
+STR_dBAd_NEW_ENGINE 	:듀얼 게이지 본선 (전기)
+STR_dBAd_TB_CAPTION 	:듀얼 게이지 본선 (전기)
+
+STR_dUAN 				:도시 듀얼 게이지 {LTBROWN}(일반){WHITE}
+STR_dUAN_BUILD_CAPTION	:새 듀얼 게이지 차량
+STR_dUAN_AUTOREPLACE 	:듀얼 게이지 차량
+STR_dUAN_NEW_ENGINE 	:도시 듀얼 게이지
+STR_dUAN_TB_CAPTION 	:도시 듀얼 게이지
+
+STR_dUAd 				:도시 듀얼 게이지 {LTBLUE}(전기){WHITE}
+STR_dUAd_BUILD_CAPTION	:새 전기 듀얼 게이지 차량
+STR_dUAd_AUTOREPLACE 	:전기 듀얼 게이지 차량
+STR_dUAd_NEW_ENGINE 	:도시 듀얼 게이지 (전기)
+STR_dUAd_TB_CAPTION 	:도시 듀얼 게이지 (전기)
+
+
+STR_dCAd 				:신식 듀얼 게이지 {LTBLUE}(전기){WHITE}
+STR_dCAd_BUILD_CAPTION	:새 전기 듀얼 게이지 차량
+STR_dCAd_AUTOREPLACE 	:전기 듀얼 게이지 차량
+STR_dCAd_NEW_ENGINE 	:신식 듀얼 게이지 (전기)
+STR_dCAd_TB_CAPTION 	:신식 듀얼 게이지 (전기)
+
+
+# Parameter Strings
+STR_MC_0				:/4
+STR_MC_1				:/2
+STR_MC_2				:x1 (기본값)
+STR_MC_3				:x2
+STR_MC_4				:x4
+
+STR_PARAM_CC			:차량기지에 회사 색상 사용
+STR_PARAM_CC_DESC		:이 설정을 끄면, 차량기지가 현실에 있는 것과 똑같이 표현됩니다.
+
+STR_MSC					:건설비
+STR_MSM					:유지비
+STR_CON_DESC			:
+STR_MAINT_DESC			:이 설정의 효과를 받으려면 '설정 -> 회계 -> 기반시설 유지비'를 켜야합니다.
+
+STR_PARAM_SIGNAL		:사용자 철도 신호기
+STR_PARAM_SIGNAL_DESC	:이 설정을 켜면 철도 신호기를 북한 선로 세트 고유의 그래픽으로 바꿉니다.
+STR_SIGNAL_0			:사용 안 함
+STR_SIGNAL_1			:모든 선로 종류에
+STR_SIGNAL_2			:북한 선로 세트에만
+
+STR_PARAM_METRO			:전철 선로 사용
+STR_PARAM_METRO_DESC	:사용자가 어떤 전철 선로를 사용할 수 있는지를 지정할 수 있습니다. "도시만"을 선택하면 다른 매개변수를 사용해서 도시 선로 비활성화가 무시됩니다.
+STR_PARAM_METRO1		:지하만
+STR_PARAM_METRO2		:모두
+STR_PARAM_METRO3		:지상만
+STR_PARAM_METRO4		:사용 안 함
+STR_PARAM_METRO5		:도시만
+
+STR_PARAM_NARROW		:협궤 선로 사용
+STR_PARAM_NARROW_DESC	:사용자가 어떤 협궤 선로를 사용할 수 있는지를 지정할 수 있습니다.
+STR_PARAM_NARROW1		:모두
+STR_PARAM_NARROW2		:최소
+STR_PARAM_NARROW3		:사용 안 함
+
+STR_PARAM_DUAL			:듀얼 게이지 선로 사용
+STR_PARAM_DUAL_DESC		:이 설정을 켜면, 듀얼 게이지(쌍궤) 선로를 사용할 수 있습니다.
+
+STR_PARAM_URBAN			:도시 선로 사용
+STR_PARAM_URBAN_DESC	:도시 선로를 추가합니다. 협궤에서 '모두' 사용을 선택했을 때에는 협궤에도 도시 선로를 추가해줍니다. 이 설정을 켜면 듀얼 게이지와 전철 선로에도 여러 도시 선로를 추가합니다.
+
+STR_FENCE				:울타리
+STR_FENCE_DESC			:선로의 울타리를 바꾸거나 없앱니다.
+STR_FENCE_1				:사용 안 함
+STR_FENCE_2				:도시 자기부상에만
+STR_FENCE_3				:고속 자기부상에만
+STR_FENCE_4				:모든 선로에
+
+STR_UTUNNEL				:도시 터널 구조물
+STR_UTUNNEL_DESC		:도시 선로에 사용할 터널 구조물을 선택할 수 있습니다.
+STR_UTUNNEL_1			:일반
+STR_UTUNNEL_2			:전철과 마찬가지로 도시
+
+STR_PARAM_BRICK_TUNNEL		:고속 자기부상 터널을 꽉 차게 보이게 만들기
+STR_PARAM_BRICK_TUNNEL_DESC	:이 설정을 켜면, 고속 자기부상 터널이 벽돌 배경을 갖게 됩니다. grf가 터널 바닥 스프라이트를 제거할 경우 이 설정을 사용하세요. Monorail Track Replacement를 사용할 경우에는 자동으로 활성화됩니다.
+
+STR_PARAM_INTRO			:모든 선로 종류를 처음부터 사용 가능
+STR_PARAM_INTRO_DESC	:이 설정을 끄면, 선로 종류가 시간이 지남에 따라 사용 가능해집니다.
+
+STR_PARAM_DEPOT			:다른 NewGRF의 차량기지 스프라이트 사용
+STR_PARAM_DEPOT_DESC	:이 설정을 켜면, 북한 선로 세트의 차량 기지 그래픽을 사용하지 않습니다.
+
+STR_PARAM_SPEED			:최고 속력
+STR_PARAM_SPEED_DESC	:현실적 최고 속력은 실제 선로 분류에 따른 속력이고, 게임 최적화 속력에 비해 현저히 낮습니다.
+STR_PARAM_SPEED1		:게임 최적화
+STR_PARAM_SPEED2		:현실적
+
+STR_PARAM_OGFX			:OpenGFX+ 풍경 세트의 터널 수정
+STR_PARAM_OGFX_DESC		:OpenGFX+ 풍경 세트의 터널은 북한 선로 세트와 어울리지 않습니다.
+STR_PARAM_OGFX1			:OpenGFX+ 풍경 세트 탐지
+STR_PARAM_OGFX2			:강제로 켜기
+STR_PARAM_OGFX3			:강제로 끄기
+
+STR_PARAM_BRIDGE        :다리 선로 스타일
+STR_PARAM_BRIDGE_DESC    :다리 선로에 자갈을 표시할지 말지 선택할 수 있습니다. '자동'으로 설정할 경우, Auz Bridge Replacement를 사용하면 자갈이 없는 선로를 사용합니다.
+STR_BRIDGE_1            :자동
+STR_BRIDGE_2            :자갈 있음
+STR_BRIDGE_3            :자갈 없음
+
+# Misc Strings

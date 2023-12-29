@@ -1,0 +1,60 @@
+//Standard Gauge Branch
+spriteset (SAAD_gui, "grf/SAAD_GUI.png") {
+	tmpl_gui()
+}/*
+spriteset (SAAD_depot, "grf/SAAD_Depot.png") {
+	tmpl_depot(8)
+}
+spriteset (SAAD_depot_nocc, "grf/SAAD_Depot_NOCC.png") {
+	tmpl_depot(8)
+}*/
+spriteset(SAAD_pylons, "grf/SAAD_PYLON.png") {
+template_catenarydoublepylons()
+}
+spriteset(SASD_pylons, "grf/SASD_PYLON.png") {
+template_catenarydoublepylons()
+}
+switch(FEAT_RAILTYPES, SELF, switch_pylon_SAAD, terrain_type) {
+	TILETYPE_SNOW: SASD_pylons;
+	SAAD_pylons;
+}
+spriteset(SAAD_wires, "grf/SAAD_WIRE.png") {
+template_catenarywires()
+}
+
+item(FEAT_RAILTYPES, SAAD_ID, 2) {
+     property {
+         label:                      "ELRL";//First of its kind gotta replace
+         name:                       string(STR_SAAD);
+         menu_text:                  string(STR_SAAD);
+         build_window_caption:       string(STR_SAAD_BUILD_CAPTION);
+         autoreplace_text:           string(STR_SAAD_AUTOREPLACE);
+         new_engine_text:            string(STR_SAAD_NEW_ENGINE);
+		 toolbar_caption:			 string(STR_SAAD_TB_CAPTION);
+         compatible_railtype_list:   STD_ALL;
+         powered_railtype_list:      STD_ELEC;
+		 alternative_railtype_list:  STD_ELEC;       
+         speed_limit:                (PARAM_SPEED == 0) ? 80 : 40 km/h;       
+		 map_colour:				 0xC3;
+         station_graphics:           RAILTYPE_STATION_NORMAL; 
+         acceleration_model:         ACC_MODEL_RAIL;                   
+         construction_cost:          COSTPARAM(8,PARAM_CONST);             
+		 maintenance_cost:		     COSTPARAM(8,PARAM_MAINT);	
+		 railtype_flags: bitmask(RAILTYPE_FLAG_CATENARY);	
+		 sort_order:				 0x04;	 		   
+     }
+     graphics {
+         track_overlay:		switch_SAAN_over_SNOW;				// defines the sprites drawn as overlay for junctions and highlight
+         underlay:			switch_SAAN_under_SNOW;				// defines the usual tracks and the underlay for junctions
+         bridge_surfaces:	SAAN_bridge;				// defines the overlay drawn over bridges
+		 tunnels:			SAAN_tunneltracks;			// defines the tracks drawn on a funnel tile
+         depots:            switch_depot_SAAN;    		// defines the depot sprites
+		 gui:				SAAD_gui;					// defines the gui sprites
+		 tunnel_overlay:	SAAN_tunnel;			// Custom Tunnel portals since v2
+		 level_crossings:	sw_SAAN_crossing;
+		 signals:			sw_new_signals;
+         fences:     	    NO_fences;         // Custom Fences since v2
+		 catenary_wire: 	SAAD_wires;
+		 catenary_pylons: 	switch_pylon_SAAD;
+     }
+ }

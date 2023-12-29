@@ -1,0 +1,41 @@
+//Standard Gauge Branch
+
+if (PARAM_DUAL && ((PARAM_NARROW != 2 && PARAM_SPEED == 1) || (PARAM_NARROW == 0 && PARAM_SPEED == 0))) {
+item(FEAT_RAILTYPES, dBAd_ID, 18) {
+     property {
+         label:                      "dBAd"; //first so replace
+         name:                       string(STR_dBAd);
+         menu_text:                  string(STR_dBAd);
+         build_window_caption:       string(STR_dBAd_BUILD_CAPTION);
+         autoreplace_text:           string(STR_dBAd_AUTOREPLACE);
+         new_engine_text:            string(STR_dBAd_NEW_ENGINE);
+		 toolbar_caption:			 string(STR_dBAd_TB_CAPTION);
+         compatible_railtype_list:   DUAL_ALL;
+         powered_railtype_list:      DUAL_ELEC;
+		 alternative_railtype_list:  DUAL_ELEC;       
+         speed_limit:				(PARAM_SPEED == 0) ? 121 : 70 km/h;    
+		 //introduction_date:			 date(1970,1,1);
+		 map_colour:				 0x42;
+         station_graphics:           RAILTYPE_STATION_NORMAL; 
+         acceleration_model:         ACC_MODEL_RAIL;                   
+         construction_cost:          COSTPARAM(5,PARAM_CONST);             
+		 maintenance_cost:		     COSTPARAM(4,PARAM_MAINT);	
+		 railtype_flags: bitmask(RAILTYPE_FLAG_CATENARY);		
+		 sort_order:				 0x15; 		   
+     }
+     graphics {
+         track_overlay:		switch_dBAN_over_SNOW;				// defines the sprites drawn as overlay for junctions and highlight
+         underlay:			switch_dBAN_under_SNOW;				// defines the usual tracks and the underlay for junctions
+         bridge_surfaces:	dBAN_bridge;				// defines the overlay drawn over bridges
+		 tunnels:			dBAN_tunneltracks;			// defines the tracks drawn on a funnel tile
+         depots:            switch_depot_SAAN;    		// defines the depot sprites
+		 gui:				NBAd_gui;					// defines the gui sprites
+		 tunnel_overlay:	SAAN_tunnel;			// Custom Tunnel portals since v2
+		 level_crossings:	sw_dBAN_crossing;
+		 signals:			sw_new_signals;
+         fences:     	    NO_fences;         // Custom Fences since v2
+		 catenary_wire: 	NBAd_wires;
+		 catenary_pylons: 	switch_pylon_SBAD;
+     }
+ }
+ }

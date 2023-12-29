@@ -1,0 +1,135 @@
+//Standard Gauge Branch
+spriteset (SCAN_underlay, "grf/SCAN.png") {
+	tmpl_underlay_track_types()
+}
+spriteset (SCAN_overlay, "grf/SCAN.png") {
+	tmpl_overlay_track_types()
+}
+spriteset (SCAN_snow_underlay, "grf/SCSN.png") {
+	tmpl_underlay_track_types()
+}
+spriteset (SCAN_snow_overlay, "grf/SCSN.png") {
+	tmpl_overlay_track_types()
+}
+switch(FEAT_RAILTYPES, SELF, switch_SCAN_under_SNOW,terrain_type) {
+	TILETYPE_SNOW: SCAN_snow_underlay;
+	SCAN_underlay;
+}
+switch(FEAT_RAILTYPES, SELF, switch_SCAN_over_SNOW,terrain_type) {
+	TILETYPE_SNOW: SCAN_snow_overlay;
+	SCAN_overlay;
+}
+spriteset (SCAD_bridge_ballast, "grf/SCAN.png") {
+	tmpl_bridges_overlay()
+}
+spriteset (SCAD_bridge_no_ballast, "grf/SCAN_bridge.png") {
+	tmpl_bridges_overlay()
+}
+switch(FEAT_RAILTYPES, SELF, SCAD_bridge, BRIDGEBALLAST) {
+	2: SCAD_bridge_no_ballast;
+	SCAD_bridge_ballast;
+}
+spriteset (ss_SCAN_tunneltracks, "grf/SAAN_TUNNEL.png") {
+	tmpl_tunnel_overlaytracks(120)
+}
+spriteset (ss_SCSN_tunneltracks, "grf/SASN_TUNNEL.png") {
+	tmpl_tunnel_overlaytracks(120)
+}
+switch(FEAT_RAILTYPES, SELF, SCAD_tunneltracks,terrain_type) {
+	TILETYPE_SNOW: ss_SCSN_tunneltracks;
+	ss_SCAN_tunneltracks;
+}
+/*spriteset (SCAD_tunnel, "grf/LSM_Tunnel.png") {
+	tmpl_tunnel_overlaytracks(40)
+}*/
+spriteset (SCAD_gui, "grf/SCAD_GUI.png") {
+	tmpl_gui()
+}/*
+spriteset (SCAD_depot, "grf/SCAD_Depot.png") {
+	tmpl_depot(8)
+}*/
+spriteset (SCAN_depot_nocc, "grf/SCAN_Depot_NoCC.png") {
+	tmpl_depot(8)
+}
+switch(FEAT_RAILTYPES, SELF, switch_depot_SCAN_CC, PARAM_CC) {
+	1: SBAN_depot;
+	SCAN_depot_nocc;
+}
+switch(FEAT_RAILTYPES, SELF, switch_depot_SCAN_SNOW, terrain_type) {
+	TILETYPE_SNOW: SBAN_depot_snow;
+	switch_depot_SCAN_CC;
+}
+switch(FEAT_RAILTYPES, SELF, switch_depot_SCAN, PARAM_DEPOT) {
+	1: CB_FAILED;
+	switch_depot_SCAN_SNOW;
+}
+
+spriteset(SCAD_pylons, "grf/SCAD_PYLON.png") {
+template_catenarydoublepylons()
+}
+/*
+spriteset(SCAD_wires, "gfx/ELRL/CatenaryWires_ELRL.png") {
+template_catenarywires()
+}*/
+spriteset(SCAN_CROSS_O, "grf/SCAN_CROSS.png") {
+	tmpl_level_crossing_track_types_open(24)
+}
+spriteset(SCAN_CROSS_C, "grf/SCAN_CROSS.png") {
+	tmpl_level_crossing_track_types_closed(48)
+}
+switch(FEAT_RAILTYPES, SELF, sw_SCAN_sprite_crossing, level_crossing_status) {
+	LEVEL_CROSSING_CLOSED: SCAN_CROSS_C;
+	SCAN_CROSS_O;
+}
+spriteset(SCSN_CROSS_O, "grf/SCSN_CROSS.png") {
+	tmpl_level_crossing_track_types_open(24)
+}
+spriteset(SCSN_CROSS_C, "grf/SCSN_CROSS.png") {
+	tmpl_level_crossing_track_types_closed(48)
+}
+switch(FEAT_RAILTYPES, SELF, sw_SCSN_sprite_crossing, level_crossing_status) {
+	LEVEL_CROSSING_CLOSED: SCSN_CROSS_C;
+	SCSN_CROSS_O;
+}
+switch(FEAT_RAILTYPES, SELF, sw_SCAN_crossing, terrain_type) {
+	TILETYPE_SNOW: sw_SCSN_sprite_crossing;
+	sw_SCAN_sprite_crossing;
+}
+
+item(FEAT_RAILTYPES, SCAD_ID, 4) {
+     property {
+         label:                      "SCAD";
+         name:                       string(STR_SCAD);
+         menu_text:                  string(STR_SCAD);
+         build_window_caption:       string(STR_SCAD_BUILD_CAPTION);
+         autoreplace_text:           string(STR_SCAD_AUTOREPLACE);
+         new_engine_text:            string(STR_SCAD_NEW_ENGINE);
+		 toolbar_caption:			 string(STR_SCAD_TB_CAPTION);
+         compatible_railtype_list:   STD_ALL;
+         powered_railtype_list:      STD_ELEC;
+		 alternative_railtype_list:  STD_ELEC;       
+         speed_limit:                (PARAM_SPEED == 0) ? 0 : 101 km/h;       
+		 introduction_date:			 date((PARAM_INTRO == 1) ? 0 : 1980,1,1);
+		 map_colour:				 0x98;
+         station_graphics:           RAILTYPE_STATION_NORMAL; 
+         acceleration_model:         ACC_MODEL_RAIL;                   
+         construction_cost:          COSTPARAM(18,PARAM_CONST);             
+		 maintenance_cost:		     COSTPARAM(18,PARAM_MAINT);	
+		 railtype_flags: bitmask(RAILTYPE_FLAG_CATENARY);		 
+		 sort_order:				 0x06;
+     }
+     graphics {
+         track_overlay:		switch_SCAN_over_SNOW;				// defines the sprites drawn as overlay for junctions and highlight
+         underlay:			switch_SCAN_under_SNOW;				// defines the usual tracks and the underlay for junctions
+         bridge_surfaces:	SCAD_bridge;				// defines the overlay drawn over bridges
+		 tunnels:			SCAD_tunneltracks;			// defines the tracks drawn on a funnel tile
+         depots:            switch_depot_SCAN;    	// defines the depot sprites
+		 gui:				SCAD_gui;					// defines the gui sprites
+		 tunnel_overlay:	SAAN_tunnel;			// Custom Tunnel portals since v2
+         fences:         	NO_fences;         // Custom Fences since v2
+		 level_crossings:	sw_SCAN_crossing;
+		 signals:			sw_new_signals;
+		 catenary_wire: 	SBAD_wires;
+		 catenary_pylons: 	switch_pylon_SBAD;
+     }
+ }

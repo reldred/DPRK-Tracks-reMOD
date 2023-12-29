@@ -1,0 +1,126 @@
+//Standard Gauge Branch
+spriteset (NCAN_underlay, "grf/NCAN.png") {
+	tmpl_underlay_track_types()
+}
+spriteset (NCAN_overlay, "grf/NCAN.png") {
+	tmpl_overlay_track_types()
+}
+spriteset (NCAN_snow_underlay, "grf/NCSN.png") {
+	tmpl_underlay_track_types()
+}
+spriteset (NCAN_snow_overlay, "grf/NCSN.png") {
+	tmpl_overlay_track_types()
+}
+switch(FEAT_RAILTYPES, SELF, switch_NCAN_under_SNOW,terrain_type) {
+	TILETYPE_SNOW: NCAN_snow_underlay;
+	NCAN_underlay;
+}
+switch(FEAT_RAILTYPES, SELF, switch_NCAN_over_SNOW,terrain_type) {
+	TILETYPE_SNOW: NCAN_snow_overlay;
+	NCAN_overlay;
+}
+spriteset (NCAd_bridge_ballast, "grf/NCAN.png") {
+	tmpl_bridges_overlay()
+}
+spriteset (NCAd_bridge_no_ballast, "grf/NCAN_bridge.png") {
+	tmpl_bridges_overlay()
+}
+switch(FEAT_RAILTYPES, SELF, NCAd_bridge, BRIDGEBALLAST) {
+	2: NCAd_bridge_no_ballast;
+	NCAd_bridge_ballast;
+}
+spriteset (ss_NCAN_tunneltracks, "grf/SAAN_TUNNEL.png") {
+	tmpl_tunnel_overlaytracks(240)
+}
+spriteset (ss_NCSN_tunneltracks, "grf/SASN_TUNNEL.png") {
+	tmpl_tunnel_overlaytracks(240)
+}
+switch(FEAT_RAILTYPES, SELF, NCAd_tunneltracks,terrain_type) {
+	TILETYPE_SNOW: ss_NCSN_tunneltracks;
+	ss_NCAN_tunneltracks;
+}/*
+spriteset (NCAd_tunnel, "grf/LSM_Tunnel.png") {
+	tmpl_tunnel_overlaytracks(40)
+}*/
+spriteset (NCAd_gui, "grf/NCAd_GUI.png") {
+	tmpl_gui()
+}/*
+spriteset (NCAd_depot, "grf/NCAd_Depot.png") {
+	tmpl_depot(8)
+}
+spriteset (NCAd_depot_nocc, "grf/NCAd_Depot_NOCC.png") {
+	tmpl_depot(8)
+}*/
+spriteset(NCAd_pylons, "grf/NBAd_PYLON.png") {
+template_catenarydoublepylons()
+}
+spriteset(NCAd_wires, "grf/SBAD_WIRE.png") {
+template_catenarywires()
+}
+spriteset(NCAN_CROSS_O, "grf/NCAN_CROSS.png") {
+	tmpl_level_crossing_track_types_open(24)
+}
+spriteset(NCAN_CROSS_C, "grf/NCAN_CROSS.png") {
+	tmpl_level_crossing_track_types_closed(48)
+}
+switch(FEAT_RAILTYPES, SELF, sw_NCAN_sprite_crossing, level_crossing_status) {
+	LEVEL_CROSSING_CLOSED: NCAN_CROSS_C;
+	NCAN_CROSS_O;
+}
+spriteset(NCSN_CROSS_O, "grf/NCSN_CROSS.png") {
+	tmpl_level_crossing_track_types_open(24)
+}
+spriteset(NCSN_CROSS_C, "grf/NCSN_CROSS.png") {
+	tmpl_level_crossing_track_types_closed(48)
+}
+switch(FEAT_RAILTYPES, SELF, sw_NCSN_sprite_crossing, level_crossing_status) {
+	LEVEL_CROSSING_CLOSED: NCSN_CROSS_C;
+	NCSN_CROSS_O;
+}
+switch(FEAT_RAILTYPES, SELF, sw_NCAN_crossing, terrain_type) {
+	TILETYPE_SNOW: sw_NCSN_sprite_crossing;
+	sw_NCAN_sprite_crossing;
+}
+
+if (PARAM_NARROW == 0) {
+item(FEAT_RAILTYPES, NCAd_ID, 10) {
+     property {
+         label:                      "NCAd";
+         name:                       string(STR_NCAd);
+         menu_text:                  string(STR_NCAd);
+         build_window_caption:       string(STR_NCAd_BUILD_CAPTION);
+         autoreplace_text:           string(STR_NCAd_AUTOREPLACE);
+         new_engine_text:            string(STR_NCAd_NEW_ENGINE);
+		 toolbar_caption:			 string(STR_NCAd_TB_CAPTION);
+         compatible_railtype_list:   NRW_ELEC;
+         powered_railtype_list:      NRW_ELEC;
+		 alternative_railtype_list:  NRW_ELEC;       
+         speed_limit:                (PARAM_SPEED == 0) ? 0 : 101 km/h;       
+		 introduction_date:			 date((PARAM_INTRO == 1) ? 0 : 1980,1,1);
+		 map_colour:				 0x44;
+         station_graphics:           RAILTYPE_STATION_NORMAL; 
+         acceleration_model:         ACC_MODEL_RAIL;                   
+         construction_cost:          COSTPARAM(7,PARAM_CONST);             
+		 maintenance_cost:		     COSTPARAM(6,PARAM_MAINT);	
+		 railtype_flags: bitmask(RAILTYPE_FLAG_CATENARY);
+		 sort_order:				 0x0E;		 		   
+		 introduces_railtype_list:	 ["dCAd"];
+		 requires_railtype_list:     ["NABE"];
+
+     }
+     graphics {
+         track_overlay:		switch_NCAN_over_SNOW;				// defines the sprites drawn as overlay for junctions and highlight
+         underlay:			switch_NCAN_under_SNOW;				// defines the usual tracks and the underlay for junctions
+         bridge_surfaces:	NCAd_bridge;				// defines the overlay drawn over bridges
+		 tunnels:			NCAd_tunneltracks;			// defines the tracks drawn on a funnel tile
+         depots:            switch_depot_SCAN;    		// defines the depot sprites
+		 gui:				NCAd_gui;					// defines the gui sprites
+		 tunnel_overlay:	SAAN_tunnel;			// Custom Tunnel portals since v2
+		 level_crossings:	sw_NCAN_crossing;
+		 signals:			sw_new_signals;
+         fences:     	    NO_fences;         // Custom Fences since v2
+		 catenary_wire: 	NCAd_wires;
+		 catenary_pylons: 	switch_pylon_SBAD;
+     }
+ }
+ }

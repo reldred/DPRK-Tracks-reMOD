@@ -1,0 +1,40 @@
+//Standard Gauge Branch
+if (PARAM_DUAL == 1 && PARAM_NARROW == 0 && PARAM_URBAN) {
+item(FEAT_RAILTYPES, dUAd_ID, 23) {
+     property {
+         label:                      "dUAd"; //first so replace
+         name:                       string(STR_dUAd);
+         menu_text:                  string(STR_dUAd);
+         build_window_caption:       string(STR_dUAd_BUILD_CAPTION);
+         autoreplace_text:           string(STR_dUAd_AUTOREPLACE);
+         new_engine_text:            string(STR_dUAd_NEW_ENGINE);
+		 toolbar_caption:			 string(STR_dUAd_TB_CAPTION);
+         compatible_railtype_list:   DUAL_ALL;
+         powered_railtype_list:      DUAL_ELEC;
+		 alternative_railtype_list:  DUAL_ELEC;       
+         speed_limit:				(PARAM_SPEED == 0) ? 121 : 70 km/h;    
+		 //introduction_date:			 date(1970,1,1);
+		 map_colour:				 0x42;
+         station_graphics:           RAILTYPE_STATION_NORMAL; 
+         acceleration_model:         ACC_MODEL_RAIL;                   
+         construction_cost:          COSTPARAM(5,PARAM_CONST);             
+		 maintenance_cost:		     COSTPARAM(4,PARAM_MAINT);	
+		 railtype_flags: bitmask(RAILTYPE_FLAG_CATENARY);		
+		 sort_order:				 0x17; 		   
+     }
+     graphics {
+         track_overlay:		switch_dUAN_over_SNOW;				// defines the sprites drawn as overlay for junctions and highlight
+         underlay:			switch_dUAN_under_SNOW;				// defines the usual tracks and the underlay for junctions
+         bridge_surfaces:	dBAN_bridge;				// defines the overlay drawn over bridges
+		 tunnels:			switch_dUAN_tunnel;			// defines the tracks drawn on a funnel tile
+         depots:            switch_depot_SUAN;    		// defines the depot sprites
+		 gui:				NUAd_gui;					// defines the gui sprites
+		 tunnel_overlay:	switch_urban_tunnel;			// Custom Tunnel portals since v2
+		 level_crossings:	sw_dBAN_crossing;
+		 signals:			sw_new_signals;
+         fences:     	    NO_fences;         // Custom Fences since v2
+		 catenary_wire: 	NBAd_wires;
+		 catenary_pylons: 	switch_pylon_SBAD;
+     }
+ }
+ }

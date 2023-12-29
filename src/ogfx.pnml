@@ -1,0 +1,18 @@
+template tmpl_base_tunnel_r(y) {
+	[0,  y, 44,39, 	-11,   -38]
+}
+template tmpl_base_tunnel_l(y) {
+	[45,  y, 44,39, 	-11,   -38]
+}
+replace(6148, "grf/OGFX.png") {
+	tmpl_base_tunnel_r(0)
+}
+replace(6154, "grf/OGFX.png") {
+	tmpl_base_tunnel_l(0)
+}
+replace(6140, "grf/OGFX.png") {
+	tmpl_base_tunnel_r(40)
+}
+replace(6146, "grf/OGFX.png") {
+	tmpl_base_tunnel_l(40)
+}

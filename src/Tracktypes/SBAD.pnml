@@ -1,0 +1,61 @@
+//Standard Gauge Branch
+spriteset (SBAD_gui, "grf/SBAD_GUI.png") {
+	tmpl_gui()
+}/*
+spriteset (SBAD_depot, "grf/SBAD_Depot.png") {
+	tmpl_depot(8)
+}
+spriteset (SBAD_depot_nocc, "grf/SBAD_Depot_NOCC.png") {
+	tmpl_depot(8)
+}*/
+spriteset(SBAD_pylons, "grf/SBAD_PYLON.png") {
+template_catenarydoublepylons()
+}
+spriteset(SBSD_pylons, "grf/SBSD_PYLON.png") {
+template_catenarydoublepylons()
+}
+switch(FEAT_RAILTYPES, SELF, switch_pylon_SBAD, terrain_type) {
+	TILETYPE_SNOW: SBSD_pylons;
+	SBAD_pylons;
+}
+spriteset(SBAD_wires, "grf/SBAD_WIRE.png") {
+template_catenarywires()
+}
+
+item(FEAT_RAILTYPES, SBAD_ID, 3) {
+     property {
+         label:                      "SBAD";
+         name:                       string(STR_SBAD);
+         menu_text:                  string(STR_SBAD);
+         build_window_caption:       string(STR_SBAD_BUILD_CAPTION);
+         autoreplace_text:           string(STR_SBAD_AUTOREPLACE);
+         new_engine_text:            string(STR_SBAD_NEW_ENGINE);
+		 toolbar_caption:			 string(STR_SBAD_TB_CAPTION);
+         compatible_railtype_list:   STD_ALL;
+         powered_railtype_list:      STD_ELEC;
+		 alternative_railtype_list:  STD_ELEC;       
+         speed_limit:                (PARAM_SPEED == 0) ? 121 : 70 km/h;       
+		 introduction_date:			 date((PARAM_INTRO == 1) ? 0 : 1960,1,1);
+		 map_colour:				 0xC3;
+         station_graphics:           RAILTYPE_STATION_NORMAL; 
+         acceleration_model:         ACC_MODEL_RAIL;                   
+         construction_cost:          COSTPARAM(12,PARAM_CONST);             
+		 maintenance_cost:		     COSTPARAM(14,PARAM_MAINT);		
+		 railtype_flags: bitmask(RAILTYPE_FLAG_CATENARY);		 	   
+		 sort_order:				 0x05;
+     }
+     graphics {
+         track_overlay:		switch_SBAN_over_SNOW;				// defines the sprites drawn as overlay for junctions and highlight
+         underlay:			switch_SBAN_under_SNOW;				// defines the usual tracks and the underlay for junctions
+         bridge_surfaces:	SBAN_bridge;				// defines the overlay drawn over bridges
+		 tunnels:			SBAN_tunneltracks;			// defines the tracks drawn on a funnel tile
+         depots:     	    switch_depot_SBAN;    	// defines the depot sprites
+		 gui:				SBAD_gui;					// defines the gui sprites
+		 tunnel_overlay:	SAAN_tunnel;			// Custom Tunnel portals since v2
+		 level_crossings:	sw_SBAN_crossing;
+		 signals:			sw_new_signals;
+         fences:         	NO_fences;         // Custom Fences since v2
+		 catenary_wire: 	SBAD_wires;
+		 catenary_pylons: 	switch_pylon_SBAD;
+     }
+ }
