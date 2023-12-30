@@ -2,12 +2,19 @@
 spriteset (NUAN_underlay, "grf/NUAN.png") {
 	tmpl_underlay_track_types_U()
 }
+spriteset (NUAN_JP_underlay, "grf/NUAN_JP.png") {
+	tmpl_underlay_track_types_U()
+}
 spriteset (NUAN_overlay, "grf/NBAN.png") {
 	tmpl_overlay_track_types()
 }
+switch(FEAT_RAILTYPES, SELF, switch_NUAN_JP,PARAM_URBANJP) {
+	1: NUAN_JP_underlay;
+	NUAN_underlay;
+}
 switch(FEAT_RAILTYPES, SELF, switch_NUAN_under_SNOW,terrain_type) {
 	TILETYPE_SNOW: NBAN_snow_underlay;
-	NUAN_underlay;
+	switch_NUAN_JP;
 }
 switch(FEAT_RAILTYPES, SELF, switch_NUAN_over_SNOW,terrain_type) {
 	TILETYPE_SNOW: NBAN_snow_overlay;
@@ -44,8 +51,8 @@ item(FEAT_RAILTYPES, NUAN_ID, 20) {
          compatible_railtype_list:   NRW_ALL;
          powered_railtype_list:      NRW_ALL;
 		 alternative_railtype_list:  NRW_UNELEC;       
-         speed_limit:                (PARAM_SPEED == 0) ? 121 : 70 km/h;       
-		 introduction_date:			 date((PARAM_INTRO == 1) ? 0 : 1960,1,1);
+         speed_limit:                (PARAM_SPEED == 0) ? 145 : (PARAM_SPEED == 1) ? 121 : 70 km/h;       
+		 introduction_date:			 date((PARAM_INTRO == 0) ? 0 : (PARAM_INTRO == 1) ? 1930 : 1960,1,1);
 		 map_colour:				 0x0C;
          station_graphics:           RAILTYPE_STATION_NORMAL; 
          acceleration_model:         ACC_MODEL_RAIL;                   

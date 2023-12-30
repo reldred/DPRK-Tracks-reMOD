@@ -2,12 +2,19 @@
 spriteset (dUAN_underlay, "grf/dUAN.png") {
 	tmpl_underlay_track_types_U()
 }
+spriteset (dUAN_JP_underlay, "grf/dUAN_JP.png") {
+	tmpl_underlay_track_types_U()
+}
 spriteset (dUAN_overlay, "grf/dBAN.png") {
 	tmpl_overlay_track_types()
 }
+switch(FEAT_RAILTYPES, SELF, switch_dUAN_JP,PARAM_URBANJP) {
+	1: dUAN_JP_underlay;
+	dUAN_underlay;
+}
 switch(FEAT_RAILTYPES, SELF, switch_dUAN_under_SNOW,terrain_type) {
 	TILETYPE_SNOW: dBAN_snow_underlay;
-	dUAN_underlay;
+	switch_dUAN_JP;
 }
 switch(FEAT_RAILTYPES, SELF, switch_dUAN_over_SNOW,terrain_type) {
 	TILETYPE_SNOW: dBAN_snow_overlay;
@@ -41,7 +48,7 @@ item(FEAT_RAILTYPES, dUAN_ID, 22) {
          compatible_railtype_list:   DUAL_ALL;
          powered_railtype_list:      DUAL_ALL;
 		 alternative_railtype_list:  DUAL_UNELEC;       
-         speed_limit:                (PARAM_SPEED == 0) ? 121 : 70 km/h;       
+         speed_limit:                (PARAM_SPEED == 0) ? 145 : (PARAM_SPEED == 1) ? 121 : 70 km/h;       
 		 //introduction_date:			 date(1970,1,1);
 		 map_colour:				 0x0A;
          station_graphics:           RAILTYPE_STATION_NORMAL; 

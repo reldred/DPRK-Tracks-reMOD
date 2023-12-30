@@ -34,7 +34,7 @@ item(FEAT_RAILTYPES, SAAD_ID, 2) {
          compatible_railtype_list:   STD_ALL;
          powered_railtype_list:      STD_ELEC;
 		 alternative_railtype_list:  STD_ELEC;       
-         speed_limit:                (PARAM_SPEED == 0) ? 80 : 40 km/h;       
+         speed_limit:                (PARAM_SPEED == 0) ? 97 : (PARAM_SPEED == 1) ? 80 : 40 km/h;       
 		 map_colour:				 0xC3;
          station_graphics:           RAILTYPE_STATION_NORMAL; 
          acceleration_model:         ACC_MODEL_RAIL;                   

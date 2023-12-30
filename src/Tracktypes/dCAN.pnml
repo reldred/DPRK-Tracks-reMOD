@@ -36,7 +36,7 @@ item(FEAT_RAILTYPES, dCAN_ID, 26) {
          compatible_railtype_list:   DUAL_ALL;
          powered_railtype_list:      DUAL_ALL;
 		 alternative_railtype_list:  DUAL_UNELEC;          
-         speed_limit:                (PARAM_SPEED == 0) ? 0 : 101 km/h;       
+         speed_limit:                (PARAM_SPEED == 0) ? 0 : (PARAM_SPEED == 1) ? 0 : 101 km/h;       
 		 //introduction_date:			 date(1970,1,1);
 		 map_colour:				 0x0A;
          station_graphics:           RAILTYPE_STATION_NORMAL; 
@@ -51,7 +51,7 @@ item(FEAT_RAILTYPES, dCAN_ID, 26) {
          bridge_surfaces:	dCAN_bridge;				// defines the overlay drawn over bridges
 		 tunnels:			dCAN_tunneltracks;			// defines the tracks drawn on a funnel tile
          depots:            switch_depot_SCAN;    		// defines the depot sprites
-		 gui:				NCAN_gui;					// defines the gui sprites
+		 gui:				NUAN_gui;					// defines the gui sprites
 		 tunnel_overlay:	SAAN_tunnel;			// Custom Tunnel portals since v2
 		 level_crossings:	sw_dCAN_crossing;
 		 signals:			sw_new_signals;

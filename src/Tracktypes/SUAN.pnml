@@ -2,12 +2,19 @@
 spriteset (SUAN_underlay, "grf/SUAN.png") {
 	tmpl_underlay_track_types_U()
 }
+spriteset (SUAN_JP_underlay, "grf/SUAN_JP.png") {
+	tmpl_underlay_track_types_U()
+}
 spriteset (SUAN_overlay, "grf/SBAN.png") {
 	tmpl_overlay_track_types()
 }
+switch(FEAT_RAILTYPES, SELF, switch_SUAN_JP,PARAM_URBANJP) {
+	1: SUAN_JP_underlay;
+	SUAN_underlay;
+}
 switch(FEAT_RAILTYPES, SELF, switch_SUAN_under_SNOW,terrain_type) {
 	TILETYPE_SNOW: SBAN_snow_underlay;
-	SUAN_underlay;
+	switch_SUAN_JP;
 }
 switch(FEAT_RAILTYPES, SELF, switch_SUAN_over_SNOW,terrain_type) {
 	TILETYPE_SNOW: SBAN_snow_overlay;
@@ -61,8 +68,8 @@ item(FEAT_RAILTYPES, SUAN_ID, 5) {
          compatible_railtype_list:   STD_ALL;
          powered_railtype_list:      STD_ALL;
 		 alternative_railtype_list:  STD_UNELEC;       
-         speed_limit:                (PARAM_SPEED == 0) ? 121 : 70 km/h;       
-		 introduction_date:			 date((PARAM_INTRO == 1) ? 0 : 1960,1,1);
+         speed_limit:                (PARAM_SPEED == 0) ? 145 : (PARAM_SPEED == 1) ? 121 : 70 km/h;       
+		 introduction_date:			 date((PARAM_INTRO == 0) ? 0 : (PARAM_INTRO == 1) ? 1940 : 1960,1,1);
 		 map_colour:				 0x0B;
          station_graphics:           RAILTYPE_STATION_NORMAL; 
          acceleration_model:         ACC_MODEL_RAIL;                   

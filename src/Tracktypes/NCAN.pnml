@@ -45,8 +45,8 @@ item(FEAT_RAILTYPES, NCAN_ID, 25) {
          compatible_railtype_list:   NRW_ALL;
          powered_railtype_list:      NRW_ALL;
 		 alternative_railtype_list:  NRW_UNELEC;       
-         speed_limit:                (PARAM_SPEED == 0) ? 0 : 101 km/h;       
-		 introduction_date:			 date((PARAM_INTRO == 1) ? 0 : 1980,1,1);
+         speed_limit:                (PARAM_SPEED == 0) ? (PARAM_SPEED == 1) ? 0 : 0 : 101 km/h;       
+		 introduction_date:			 date((PARAM_INTRO == 0) ? 0 : (PARAM_INTRO == 1) ? 1950 : 1980,1,1);
 		 map_colour:				 0x0C;
          station_graphics:           RAILTYPE_STATION_NORMAL; 
          acceleration_model:         ACC_MODEL_RAIL;                   
@@ -61,7 +61,7 @@ item(FEAT_RAILTYPES, NCAN_ID, 25) {
          bridge_surfaces:	NCAN_bridge;				// defines the overlay drawn over bridges
 		 tunnels:			NCAN_tunneltracks;			// defines the tracks drawn on a funnel tile
          depots:            switch_depot_SCAN;    		// defines the depot sprites
-		 gui:				NCAN_gui;					// defines the gui sprites
+		 gui:				NUAN_gui;					// defines the gui sprites
 		 tunnel_overlay:	SAAN_tunnel;			// Custom Tunnel portals since v2
 		 level_crossings:	sw_NCAN_crossing;
 		 signals:			sw_new_signals;

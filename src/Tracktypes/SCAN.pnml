@@ -55,8 +55,8 @@ item(FEAT_RAILTYPES, SCAN_ID, 24) {
          compatible_railtype_list:   STD_ALL;
          powered_railtype_list:      STD_ALL;
 		 alternative_railtype_list:  STD_UNELEC;     
-         speed_limit:                (PARAM_SPEED == 0) ? 0 : 101 km/h;       
-		 introduction_date:			 date((PARAM_INTRO == 1) ? 0 : 1980,1,1);
+         speed_limit:                (PARAM_SPEED == 0) ? 0 : (PARAM_SPEED == 1) ? 0 : 101 km/h;       
+		 introduction_date:			 date((PARAM_INTRO == 0) ? 0 : (PARAM_INTRO == 1) ? 1950 : 1980,1,1);
 		 map_colour:				 0x0B;
          station_graphics:           RAILTYPE_STATION_NORMAL; 
          acceleration_model:         ACC_MODEL_RAIL;                   
@@ -70,7 +70,7 @@ item(FEAT_RAILTYPES, SCAN_ID, 24) {
          bridge_surfaces:	SCAN_bridge;				// defines the overlay drawn over bridges
 		 tunnels:			SCAN_tunneltracks;			// defines the tracks drawn on a funnel tile
          depots:            switch_depot_SCAN;    	// defines the depot sprites
-		 gui:				SCAN_gui;					// defines the gui sprites
+		 gui:				NUAN_gui;					// defines the gui sprites
 		 tunnel_overlay:	SAAN_tunnel;			// Custom Tunnel portals since v2
          fences:         	NO_fences;         // Custom Fences since v2
 		 level_crossings:	sw_SCAN_crossing;

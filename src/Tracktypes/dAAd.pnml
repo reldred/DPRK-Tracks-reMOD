@@ -12,7 +12,7 @@ item(FEAT_RAILTYPES, dAAd_ID, 16) {
          compatible_railtype_list:   DUAL_ALL;
          powered_railtype_list:      DUAL_ELEC;
 		 alternative_railtype_list:  DUAL_ELEC;       
-         speed_limit:                (PARAM_SPEED == 0) ? 80 : 40 km/h;
+         speed_limit:                (PARAM_SPEED == 0) ? 97 : (PARAM_SPEED == 1) ? 80 : 40 km/h;
 		 //introduction_date:			 date(1970,1,1);
 		 map_colour:				 0x42;
          station_graphics:           RAILTYPE_STATION_NORMAL; 

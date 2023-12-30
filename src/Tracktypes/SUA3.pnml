@@ -2,12 +2,19 @@
 spriteset (SUA3_underlay, "grf/SUA3.png") {
 	tmpl_underlay_track_types()
 }
+spriteset (SUA3_JP_underlay, "grf/SUA3_JP.png") {
+	tmpl_underlay_track_types()
+}
 spriteset (SUA3_overlay, "grf/SAA3.png") {
 	tmpl_overlay_track_types()
 }
+switch(FEAT_RAILTYPES, SELF, switch_SUA3_JP,PARAM_URBANJP) {
+	1: SUA3_JP_underlay;
+	SUA3_underlay;
+}
 switch(FEAT_RAILTYPES, SELF, switch_SUA3_under_SNOW,terrain_type) {
 	TILETYPE_SNOW: SAA3_snow_underlay;
-	SUA3_underlay;
+	switch_SUA3_JP;
 }
 switch(FEAT_RAILTYPES, SELF, switch_SUA3_over_SNOW,terrain_type) {
 	TILETYPE_SNOW: SAA3_snow_overlay;
@@ -29,8 +36,8 @@ item(FEAT_RAILTYPES, SUA3_ID, 13) {
          compatible_railtype_list:   STD_3RD;
          powered_railtype_list:      STD_3RD;
 		 alternative_railtype_list:  STD_3RD;       
-         speed_limit:                91 km/h;         
-		 introduction_date:			 date((PARAM_INTRO == 1) ? 0 : 1965,1,1);
+         speed_limit:                (PARAM_SPEED == 0) ? 145 : (PARAM_SPEED == 1) ? 121 : 91 km/h;          
+		 introduction_date:			 date((PARAM_INTRO == 0) ? 0 : (PARAM_INTRO == 1) ? 1900 : 1965,1,1);
 		 map_colour:				 0xC3;
          station_graphics:           RAILTYPE_STATION_NORMAL; 
          acceleration_model:         ACC_MODEL_RAIL;                   

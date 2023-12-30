@@ -28,8 +28,8 @@ item(FEAT_RAILTYPES, NBAd_ID, 9) {
          compatible_railtype_list:   NRW_ELEC;
          powered_railtype_list:      NRW_ELEC;
 		 alternative_railtype_list:  NRW_ELEC;       
-         speed_limit:                (PARAM_SPEED == 0) ? 121 : 70 km/h;       
-		 introduction_date:			 date((PARAM_INTRO == 1) ? 0 : 1960,1,1);
+         speed_limit:                (PARAM_SPEED == 0) ? 145 : (PARAM_SPEED == 1) ? 121 : 70 km/h;       
+		 introduction_date:			 date((PARAM_INTRO == 0) ? 0 : (PARAM_INTRO == 1) ? 1930 : 1960,1,1);
 		 map_colour:				 0x44;
          station_graphics:           RAILTYPE_STATION_NORMAL; 
          acceleration_model:         ACC_MODEL_RAIL;                   

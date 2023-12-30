@@ -236,6 +236,11 @@ STR_PARAM_DUAL_DESC		:When enabled, dual gauge tracks will be available.
 STR_PARAM_URBAN			:Availability urban tracks
 STR_PARAM_URBAN_DESC	:Adds urban tracks. When narrow gauge is set to all, also adds urban narrow gauge. When enabled, it also adds urban variants for dual gauge and metro tracks.
 
+STR_PARAM_URBANJP			:Urban Tracks Appearance
+STR_PARAM_URBANJP_DESC	:For urban tracks. Allows setting an alternate appearance to the urban tracks for compatibility with other sets.
+STR_PARAM_URBANJP_0		:North Korean
+STR_PARAM_URBANJP_1		:Japanese
+
 STR_FENCE				:Fences
 STR_FENCE_DESC			:Replaces or deactivates the fences for railtracks.
 STR_FENCE_1				:None
@@ -251,17 +256,20 @@ STR_UTUNNEL_2			:Urban, same as subway
 STR_PARAM_BRICK_TUNNEL		:Make high speed maglev tunnel full tile
 STR_PARAM_BRICK_TUNNEL_DESC	:When enabled, the high speed maglev tunnel will get a brick background. Use this when a grf deletes the tunnel ground sprites. Automatically activated when the Monorail Track Replacement is loaded.
 
-STR_PARAM_INTRO			:All tracktypes available from the beginning
-STR_PARAM_INTRO_DESC	:When disabled, tracktypes will be made available over time.
+STR_PARAM_INTRO			:Tracktype Availability
+STR_PARAM_INTRO_DESC	:Realistic introduction dates are based on actual track classifications, and introduced signficantly later than gameplay optimised dates.
+STR_PARAM_INTRO1		:Always Available
+STR_PARAM_INTRO2		:International Compatibility
+STR_PARAM_INTRO3		:Realistic
 
 STR_PARAM_DEPOT			:Allow other NewGRFs to provide depot sprites
 STR_PARAM_DEPOT_DESC	:When enabled, the DPRK trackset will not provide any depot sprites.
 
 STR_PARAM_SPEED			:Maximum speeds
 STR_PARAM_SPEED_DESC	:Realistic maximum speeds are based on actual track classifications, and significantly lower than gameplay optimised speeds.
-STR_PARAM_SPEED1		:Gameplay Optimised
-STR_PARAM_SPEED2		:Realistic
-STR_PARAM_SPEED3		:Enhanced Gameplay Optimised
+STR_PARAM_SPEED1		:International Compatibility
+STR_PARAM_SPEED2		:Gameplay Optimised
+STR_PARAM_SPEED3		:Realistic
 
 STR_PARAM_OGFX			:Fix tunnels for OpenGFX+ Landscape
 STR_PARAM_OGFX_DESC		:Tunnels in OpenGFX+ Landscape don't work well with DPRK tracks.
