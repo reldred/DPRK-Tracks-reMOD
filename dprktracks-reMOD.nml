@@ -201,14 +201,18 @@ grf {
  }
  }
 }
-
 //Defines how the sprites are tracked, courtesy of the swedish rail set.
 /* $Id$ */
 /*
+
  * This file is part of the Swedish RailSet.
+
  * Swedish RailSet is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 2.
+
  * Swedish RailSet is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
  * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with Swedish RailSet. If not, see <http://www.gnu.org/licenses/>.
+
  */
 // Default ground tile template (re-use as needed)
 template ground_tile(x, y) { [x, y, 64, 31, -31, 0, 9] }
@@ -436,7 +440,9 @@ template tmpl_depot(x) {
 }
 // Catenary stuff from Auztracks
 /**********************************************
+
 //Catenarypylons
+
  **********************************************/
 //Catenarypylons
 template template_catenarydoublepylons() {
@@ -451,7 +457,9 @@ template template_catenarydoublepylons() {
  [ 181, 28, 27, 32, -26, -31]
 }
 /**********************************************
+
 //Catenarywires
+
  **********************************************/
 template template_catenarywires() {
     //[left_x, upper_y, width, height, offset_x, offset_y]
@@ -486,7 +494,9 @@ template template_catenarywires() {
 }
 // Catenary stuff from Auztracks
 /**********************************************
+
 //Catenarypylons
+
  **********************************************/
 template template_nopylons() {
     //[left_x, upper_y, width, height, offset_x, offset_y]
@@ -536,7 +546,6 @@ template template_metroroof() {
  [1, 1, 1, 1, 1, 1]
  [1, 1, 1, 1, 1, 1]
 }
-
 //----------------- Standard gauge
 //Unelectrified
 //Electrified
@@ -548,7 +557,6 @@ template template_metroroof() {
 //Unelectrified
 //Electrified
 //Compatibility	
-
 spriteset (SPRITESET_NO_fences, "grf/Fences.png") { tmpl_no_fences()}switch(FEAT_RAILTYPES, SELF, NO_fences, PARAM_FENCE) { 0: SPRITESET_NO_fences; CB_FAILED;}
 template tmpl_signals(y) {
  [0, y, 9,23, -5, -21]
@@ -908,14 +916,23 @@ if(PARAM_SIGNAL == 1){
  replace(1275, "grf/Signals.png") {
   tmpl_base_signals(48)
  }/*
+
 	replacenew(PRE_SIGNAL_SEMAPHORE, "grf/Signals.png", 0) {
+
 		tmpl_base_signals(48*2)
+
 		tmpl_base_signals(48*3)
+
 		tmpl_base_signals(48*4)
+
 		tmpl_base_semaphore(48*1)
+
 		tmpl_base_semaphore(48*2)
+
 		tmpl_base_semaphore(48*3)
+
 		tmpl_base_semaphore(48*4)
+
 	}*/
  replacenew(PRE_SIGNAL_SEMAPHORE_PBS, "grf/Signals.png") {
   tmpl_base_signals(48*2)
@@ -1111,8 +1128,11 @@ switch(FEAT_RAILTYPES, SELF, SBAN_tunneltracks,terrain_type) {
  TILETYPE_SNOW: ss_SBSN_tunneltracks;
  ss_SBAN_tunneltracks;
 }/*
+
 spriteset (SBAN_tunnel, "grf/LSM_Tunnel.png") {
+
 	tmpl_tunnel_overlaytracks(40)
+
 }*/
 spriteset (SBAN_gui, "grf/SBAN_GUI.png") {
  tmpl_gui()
@@ -1200,11 +1220,17 @@ item(FEAT_RAILTYPES, SBAN_ID, 1) {
 spriteset (SAAD_gui, "grf/SAAD_GUI.png") {
  tmpl_gui()
 }/*
+
 spriteset (SAAD_depot, "grf/SAAD_Depot.png") {
+
 	tmpl_depot(8)
+
 }
+
 spriteset (SAAD_depot_nocc, "grf/SAAD_Depot_NOCC.png") {
+
 	tmpl_depot(8)
+
 }*/
 spriteset(SAAD_pylons, "grf/SAAD_PYLON.png") {
 template_catenarydoublepylons()
@@ -1259,11 +1285,17 @@ item(FEAT_RAILTYPES, SAAD_ID, 2) {
 spriteset (SBAD_gui, "grf/SBAD_GUI.png") {
  tmpl_gui()
 }/*
+
 spriteset (SBAD_depot, "grf/SBAD_Depot.png") {
+
 	tmpl_depot(8)
+
 }
+
 spriteset (SBAD_depot_nocc, "grf/SBAD_Depot_NOCC.png") {
+
 	tmpl_depot(8)
+
 }*/
 spriteset(SBAD_pylons, "grf/SBAD_PYLON.png") {
 template_catenarydoublepylons()
@@ -1357,13 +1389,18 @@ switch(FEAT_RAILTYPES, SELF, SCAD_tunneltracks,terrain_type) {
  ss_SCAN_tunneltracks;
 }
 /*spriteset (SCAD_tunnel, "grf/LSM_Tunnel.png") {
+
 	tmpl_tunnel_overlaytracks(40)
+
 }*/
 spriteset (SCAD_gui, "grf/SCAD_GUI.png") {
  tmpl_gui()
 }/*
+
 spriteset (SCAD_depot, "grf/SCAD_Depot.png") {
+
 	tmpl_depot(8)
+
 }*/
 spriteset (SCAN_depot_nocc, "grf/SCAN_Depot_NoCC.png") {
  tmpl_depot(8)
@@ -1384,8 +1421,11 @@ spriteset(SCAD_pylons, "grf/SCAD_PYLON.png") {
 template_catenarydoublepylons()
 }
 /*
+
 spriteset(SCAD_wires, "gfx/ELRL/CatenaryWires_ELRL.png") {
+
 template_catenarywires()
+
 }*/
 spriteset(SCAN_CROSS_O, "grf/SCAN_CROSS.png") {
  tmpl_level_crossing_track_types_open(24)
@@ -1448,7 +1488,6 @@ item(FEAT_RAILTYPES, SCAD_ID, 4) {
    catenary_pylons: switch_pylon_SBAD;
      }
  }
-
 //Standard Gauge Branch
 spriteset (NAAN_underlay, "grf/NAAN.png") {
  tmpl_underlay_track_types()
@@ -1490,8 +1529,11 @@ switch(FEAT_RAILTYPES, SELF, NAAN_tunneltracks,terrain_type) {
  TILETYPE_SNOW: ss_NASN_tunneltracks;
  ss_NAAN_tunneltracks;
 }/*
+
 spriteset (NAAN_tunnel, "grf/LSM_Tunnel.png") {
+
 	tmpl_tunnel_overlaytracks(40)
+
 }*/
 spriteset (NAAN_gui, "grf/NAAN_GUI.png") {
  tmpl_gui()
@@ -1561,11 +1603,17 @@ item(FEAT_RAILTYPES, NAAN_ID, 6) {
 spriteset (NAAd_gui, "grf/NAAd_GUI.png") {
  tmpl_gui()
 }/*
+
 spriteset (NAAd_depot, "grf/NAAd_Depot.png") {
+
 	tmpl_depot(8)
+
 }
+
 spriteset (NAAd_depot_nocc, "grf/NAAd_Depot_NOCC.png") {
+
 	tmpl_depot(8)
+
 }*/
 spriteset(NAAd_pylons, "grf/NAAd_PYLON.png") {
 template_catenarydoublepylons()
@@ -1613,7 +1661,6 @@ item(FEAT_RAILTYPES, NAAd_ID, 7) {
      }
  }
  }
-
 //Standard Gauge Branch
 spriteset (SAA3_underlay, "grf/SAA3.png") {
  tmpl_underlay_track_types()
@@ -1642,7 +1689,9 @@ spriteset (SAA3_tunneltracks, "grf/SAA3.png") {
  tmpl_tunnel_tracks()
 }
 /*spriteset (SAA3_tunnel, "grf/LSM_Tunnel.png") {
+
 	tmpl_tunnel_overlaytracks(40)
+
 }*/
 spriteset (SAA3_gui, "grf/SAA3_GUI.png") {
  tmpl_gui()
@@ -1777,7 +1826,6 @@ item(FEAT_RAILTYPES, SSA3_ID, 12) {
      }
  }
 }
-
 //Standard Gauge Branch
 spriteset (NBAN_underlay, "grf/NBAN.png") {
  tmpl_underlay_track_types()
@@ -1819,8 +1867,11 @@ switch(FEAT_RAILTYPES, SELF, NBAN_tunneltracks,terrain_type) {
  TILETYPE_SNOW: ss_NBSN_tunneltracks;
  ss_NBAN_tunneltracks;
 }/*
+
 spriteset (NBAN_tunnel, "grf/LSM_Tunnel.png") {
+
 	tmpl_tunnel_overlaytracks(40)
+
 }*/
 spriteset (NBAN_gui, "grf/NBAN_GUI.png") {
  tmpl_gui()
@@ -1890,11 +1941,17 @@ item(FEAT_RAILTYPES, NBAN_ID, 8) {
 spriteset (NBAd_gui, "grf/NBAd_GUI.png") {
  tmpl_gui()
 }/*
+
 spriteset (NBAd_depot, "grf/NBAd_Depot.png") {
+
 	tmpl_depot(8)
+
 }
+
 spriteset (NBAd_depot_nocc, "grf/NBAd_Depot_NOCC.png") {
+
 	tmpl_depot(8)
+
 }*/
 spriteset(NBAd_pylons, "grf/NBAd_PYLON.png") {
 template_catenarydoublepylons()
@@ -1943,7 +2000,6 @@ item(FEAT_RAILTYPES, NBAd_ID, 9) {
      }
  }
  }
-
 //Standard Gauge Branch
 spriteset (NCAN_underlay, "grf/NCAN.png") {
  tmpl_underlay_track_types()
@@ -1985,17 +2041,26 @@ switch(FEAT_RAILTYPES, SELF, NCAd_tunneltracks,terrain_type) {
  TILETYPE_SNOW: ss_NCSN_tunneltracks;
  ss_NCAN_tunneltracks;
 }/*
+
 spriteset (NCAd_tunnel, "grf/LSM_Tunnel.png") {
+
 	tmpl_tunnel_overlaytracks(40)
+
 }*/
 spriteset (NCAd_gui, "grf/NCAd_GUI.png") {
  tmpl_gui()
 }/*
+
 spriteset (NCAd_depot, "grf/NCAd_Depot.png") {
+
 	tmpl_depot(8)
+
 }
+
 spriteset (NCAd_depot_nocc, "grf/NCAd_Depot_NOCC.png") {
+
 	tmpl_depot(8)
+
 }*/
 spriteset(NCAd_pylons, "grf/NBAd_PYLON.png") {
 template_catenarydoublepylons()
@@ -2068,7 +2133,6 @@ item(FEAT_RAILTYPES, NCAd_ID, 10) {
      }
  }
  }
-
 //Standard Gauge Branch
 spriteset (dAAN_underlay, "grf/dAAN.png") {
  tmpl_underlay_track_types()
@@ -2110,15 +2174,24 @@ switch(FEAT_RAILTYPES, SELF, dAAN_tunneltracks,terrain_type) {
  TILETYPE_SNOW: ss_dASN_tunneltracks;
  ss_dAAN_tunneltracks;
 }/*
+
 spriteset (NAAd_tunnel, "grf/LSM_Tunnel.png") {
+
 	tmpl_tunnel_overlaytracks(40)
+
 }*/
 /*
+
 spriteset (NAAd_depot, "grf/NAAd_Depot.png") {
+
 	tmpl_depot(8)
+
 }
+
 spriteset (NAAd_depot_nocc, "grf/NAAd_Depot_NOCC.png") {
+
 	tmpl_depot(8)
+
 }*/
 spriteset(dAAN_CROSS_O, "grf/dAAN_CROSS.png") {
  tmpl_level_crossing_track_types_open(24)
@@ -2261,15 +2334,24 @@ switch(FEAT_RAILTYPES, SELF, dBAN_tunneltracks,terrain_type) {
  TILETYPE_SNOW: ss_dBSN_tunneltracks;
  ss_dBAN_tunneltracks;
 }/*
+
 spriteset (NAAd_tunnel, "grf/LSM_Tunnel.png") {
+
 	tmpl_tunnel_overlaytracks(40)
+
 }*/
 /*
+
 spriteset (NAAd_depot, "grf/NAAd_Depot.png") {
+
 	tmpl_depot(8)
+
 }
+
 spriteset (NAAd_depot_nocc, "grf/NAAd_Depot_NOCC.png") {
+
 	tmpl_depot(8)
+
 }*/
 spriteset(dBAN_CROSS_O, "grf/dBAN_CROSS.png") {
  tmpl_level_crossing_track_types_open(24)
@@ -2412,15 +2494,24 @@ switch(FEAT_RAILTYPES, SELF, dCAd_tunneltracks,terrain_type) {
  TILETYPE_SNOW: ss_dCSN_tunneltracks;
  ss_dCAN_tunneltracks;
 }/*
+
 spriteset (NBAd_tunnel, "grf/LSM_Tunnel.png") {
+
 	tmpl_tunnel_overlaytracks(40)
+
 }*/
 /*
+
 spriteset (NBAd_depot, "grf/NBAd_Depot.png") {
+
 	tmpl_depot(8)
+
 }
+
 spriteset (NBAd_depot_nocc, "grf/NBAd_Depot_NOCC.png") {
+
 	tmpl_depot(8)
+
 }*/
 spriteset(dCAN_CROSS_O, "grf/dCAN_CROSS.png") {
  tmpl_level_crossing_track_types_open(24)
@@ -2849,7 +2940,6 @@ item(FEAT_RAILTYPES, dUAd_ID, 23) {
      }
  }
  }
-
 //Standard Gauge Branch
 spriteset (SUA3_underlay, "grf/SUA3.png") {
  tmpl_underlay_track_types()
@@ -2911,7 +3001,6 @@ item(FEAT_RAILTYPES, SUA3_ID, 13) {
      }
  }
 }
-
 //Standard Gauge Branch
 spriteset (SCAN_bridge_ballast, "grf/SCAN.png") {
  tmpl_bridges_overlay()
@@ -2928,33 +3017,58 @@ switch(FEAT_RAILTYPES, SELF, SCAN_tunneltracks,terrain_type) {
  ss_SCAN_tunneltracks;
 }
 /*spriteset (SCAN_tunnel, "grf/LSM_Tunnel.png") {
+
 	tmpl_tunnel_overlaytracks(40)
+
 }*/
 spriteset (SCAN_gui, "grf/SCAN_GUI.png") {
  tmpl_gui()
 }/*
+
 spriteset (SCAN_depot_nocc, "grf/SCAN_Depot_NoCC.png") {
+
 	tmpl_depot(8)
-}
-switch(FEAT_RAILTYPES, SELF, switch_depot_SCAN_CC, PARAM_CC) {
-	1: SBAN_depot;
-	SCAN_depot_nocc;
-}
-switch(FEAT_RAILTYPES, SELF, switch_depot_SCAN_SNOW, terrain_type) {
-	TILETYPE_SNOW: SBAN_depot_snow;
-	switch_depot_SCAN_CC;
-}
-switch(FEAT_RAILTYPES, SELF, switch_depot_SCAN, PARAM_DEPOT) {
-	1: CB_FAILED;
-	switch_depot_SCAN_SNOW;
+
 }
 
-spriteset(SCAN_pylons, "grf/SCAN_PYLON.png") {
-template_catenarydoublepylons()
+switch(FEAT_RAILTYPES, SELF, switch_depot_SCAN_CC, PARAM_CC) {
+
+	1: SBAN_depot;
+
+	SCAN_depot_nocc;
+
 }
+
+switch(FEAT_RAILTYPES, SELF, switch_depot_SCAN_SNOW, terrain_type) {
+
+	TILETYPE_SNOW: SBAN_depot_snow;
+
+	switch_depot_SCAN_CC;
+
+}
+
+switch(FEAT_RAILTYPES, SELF, switch_depot_SCAN, PARAM_DEPOT) {
+
+	1: CB_FAILED;
+
+	switch_depot_SCAN_SNOW;
+
+}
+
+
+
+spriteset(SCAN_pylons, "grf/SCAN_PYLON.png") {
+
+template_catenarydoublepylons()
+
+}
+
 /*
+
 spriteset(SCAN_wires, "gfx/ELRL/CatenaryWires_ELRL.png") {
+
 template_catenarywires()
+
 }*/
 item(FEAT_RAILTYPES, SCAN_ID, 24) {
      property {
@@ -3005,17 +3119,26 @@ switch(FEAT_RAILTYPES, SELF, NCAN_tunneltracks,terrain_type) {
  TILETYPE_SNOW: ss_NCSN_tunneltracks;
  ss_NCAN_tunneltracks;
 }/*
+
 spriteset (NCAN_tunnel, "grf/LSM_Tunnel.png") {
+
 	tmpl_tunnel_overlaytracks(40)
+
 }*/
 spriteset (NCAN_gui, "grf/NCAN_GUI.png") {
  tmpl_gui()
 }/*
+
 spriteset (NCAN_depot, "grf/NCAN_Depot.png") {
+
 	tmpl_depot(8)
+
 }
+
 spriteset (NCAN_depot_nocc, "grf/NCAN_Depot_NOCC.png") {
+
 	tmpl_depot(8)
+
 }*/
 spriteset(NCAN_pylons, "grf/NBAd_PYLON.png") {
 template_catenarydoublepylons()
@@ -3075,15 +3198,24 @@ switch(FEAT_RAILTYPES, SELF, dCAN_tunneltracks,terrain_type) {
  TILETYPE_SNOW: ss_dCSN_tunneltracks;
  ss_dCAN_tunneltracks;
 }/*
+
 spriteset (NBAd_tunnel, "grf/LSM_Tunnel.png") {
+
 	tmpl_tunnel_overlaytracks(40)
+
 }*/
 /*
+
 spriteset (NBAd_depot, "grf/NBAd_Depot.png") {
+
 	tmpl_depot(8)
+
 }
+
 spriteset (NBAd_depot_nocc, "grf/NBAd_Depot_NOCC.png") {
+
 	tmpl_depot(8)
+
 }*/
 if (PARAM_DUAL == 1 && PARAM_NARROW == 0) {
 item(FEAT_RAILTYPES, dCAN_ID, 26) {
@@ -3121,5 +3253,4 @@ item(FEAT_RAILTYPES, dCAN_ID, 26) {
      }
  }
 }
-
 //cd /mnt/c/Temp/MTS2
