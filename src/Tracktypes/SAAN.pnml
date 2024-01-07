@@ -98,6 +98,11 @@ switch(FEAT_RAILTYPES, SELF, sw_SAAN_crossing, terrain_type) {
 	sw_SAAN_sprite_crossing;
 }
 
+switch(FEAT_RAILTYPES, SELF, sw_SAAN_fence, PARAM_FENCE){
+	0: NO_fences;
+	1: old_fences;
+}
+
 item(FEAT_RAILTYPES, SAAN_ID, 0) {
      property {
          label:                      "RAIL";//First of its kind gotta replace
@@ -129,6 +134,6 @@ item(FEAT_RAILTYPES, SAAN_ID, 0) {
 		 tunnel_overlay:	SAAN_tunnel;			// Custom Tunnel portals since v2
 		 level_crossings:	sw_SAAN_crossing;
 		 signals:			sw_new_signals;
-         fences:          NO_fences;         // Custom Fences since v2
+         fences:            sw_SAAN_fence;         // Custom Fences since v2
      }
  }

@@ -31,7 +31,7 @@ item(FEAT_RAILTYPES, SUAD_ID, 14) {
 		 tunnel_overlay:	switch_urban_tunnel;			// Custom Tunnel portals since v2
 		 level_crossings:	sw_SBAN_crossing;
 		 signals:			sw_new_signals;
-         fences:         	NO_fences;         // Custom Fences since v2
+         fences:            sw_SBAN_fence;         // Custom Fences since v2
 		 catenary_wire: 	SBAD_wires;
 		 catenary_pylons: 	switch_pylon_SBAD;
      }

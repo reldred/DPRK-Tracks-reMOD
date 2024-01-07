@@ -91,6 +91,11 @@ switch(FEAT_RAILTYPES, SELF, sw_SBAN_crossing, terrain_type) {
 	sw_SBAN_sprite_crossing;
 }
 
+switch(FEAT_RAILTYPES, SELF, sw_SBAN_fence, PARAM_FENCE){
+	0: NO_fences;
+	1: reg_fences;
+}
+
 item(FEAT_RAILTYPES, SBAN_ID, 1) {
      property {
          label:                      "SBAN";//First of its kind gotta replace
@@ -122,6 +127,6 @@ item(FEAT_RAILTYPES, SBAN_ID, 1) {
 		 tunnel_overlay:	SAAN_tunnel;			// Custom Tunnel portals since v2
 		 level_crossings:	sw_SBAN_crossing;
 		 signals:			sw_new_signals;
-         fences:         	NO_fences;         // Custom Fences since v2
+         fences:            sw_SBAN_fence;         // Custom Fences since v2
      }
  }

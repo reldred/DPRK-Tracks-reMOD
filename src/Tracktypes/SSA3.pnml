@@ -86,7 +86,7 @@ item(FEAT_RAILTYPES, SSA3_ID, 12) {
 		 gui:				SSA3_gui;					// defines the gui sprites
 		 signals:			sw_new_signals;
 		 tunnel_overlay:	switch_tunnel_SSAN;			// Custom Tunnel portals since v2
-         fences:         	NO_fences;         // Custom Fences since v2
+         fences:            sw_SBAN_fence;         // Custom Fences since v2
 		 catenary_wire: 	switch_wires_SSAN;
 		 catenary_pylons: 	SSA3_pylons;
      }

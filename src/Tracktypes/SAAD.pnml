@@ -53,7 +53,7 @@ item(FEAT_RAILTYPES, SAAD_ID, 2) {
 		 tunnel_overlay:	SAAN_tunnel;			// Custom Tunnel portals since v2
 		 level_crossings:	sw_SAAN_crossing;
 		 signals:			sw_new_signals;
-         fences:     	    NO_fences;         // Custom Fences since v2
+         fences:            sw_SAAN_fence;         // Custom Fences since v2
 		 catenary_wire: 	SAAD_wires;
 		 catenary_pylons: 	switch_pylon_SAAD;
      }

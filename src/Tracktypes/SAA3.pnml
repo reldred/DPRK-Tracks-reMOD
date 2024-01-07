@@ -63,7 +63,7 @@ item(FEAT_RAILTYPES, SAA3_ID, 11) {
 		 gui:				SAA3_gui;					// defines the gui sprites
 		 signals:			sw_new_signals;
 		 tunnel_overlay:	SAAN_tunnel;			// Custom Tunnel portals since v2
-         fences:         	NO_fences;         // Custom Fences since v2
+         fences:            sw_SBAN_fence;         // Custom Fences since v2
      }
  }
 }

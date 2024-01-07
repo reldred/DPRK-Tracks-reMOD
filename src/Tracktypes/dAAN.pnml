@@ -106,7 +106,7 @@ item(FEAT_RAILTYPES, dAAN_ID, 15) {
 		 tunnel_overlay:	SAAN_tunnel;			// Custom Tunnel portals since v2
 		 level_crossings:	sw_dAAN_crossing;
 		 signals:			sw_new_signals;
-         fences:     	    NO_fences;         // Custom Fences since v2
+         fences:            sw_SAAN_fence;         // Custom Fences since v2
      }
  }
  }

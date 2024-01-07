@@ -50,7 +50,7 @@ item(FEAT_RAILTYPES, NBAd_ID, 9) {
 		 tunnel_overlay:	SAAN_tunnel;			// Custom Tunnel portals since v2
 		 level_crossings:	sw_NBAN_crossing;
 		 signals:			sw_new_signals;
-         fences:     	    NO_fences;         // Custom Fences since v2
+         fences:            sw_SBAN_fence;         // Custom Fences since v2
 		 catenary_wire: 	NBAd_wires;
 		 catenary_pylons: 	switch_pylon_SBAD;
      }

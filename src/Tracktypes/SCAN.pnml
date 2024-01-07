@@ -72,7 +72,7 @@ item(FEAT_RAILTYPES, SCAN_ID, 24) {
          depots:            switch_depot_SCAN;    	// defines the depot sprites
 		 gui:				NUAN_gui;					// defines the gui sprites
 		 tunnel_overlay:	SAAN_tunnel;			// Custom Tunnel portals since v2
-         fences:         	NO_fences;         // Custom Fences since v2
+         fences:            sw_SBAN_fence;         // Custom Fences since v2
 		 level_crossings:	sw_SCAN_crossing;
 		 signals:			sw_new_signals;
      }
